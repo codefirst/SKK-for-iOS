@@ -54,6 +54,12 @@
 		131BDF8819D06CB50085EA1B /* SKKRomanKanaConverter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 131BDF5419D06CB50085EA1B /* SKKRomanKanaConverter.cpp */; };
 		131BDF8919D06CB50085EA1B /* SKKTrie.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 131BDF5619D06CB50085EA1B /* SKKTrie.cpp */; };
 		131BDF8A19D06CB50085EA1B /* jconv.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 131BDF5A19D06CB50085EA1B /* jconv.cpp */; };
+		131BDF8F19D06CF10085EA1B /* kana-rule.conf in Resources */ = {isa = PBXBuildFile; fileRef = 131BDF8C19D06CF10085EA1B /* kana-rule.conf */; };
+		131BDF9019D06CF10085EA1B /* kana-rule.conf in Resources */ = {isa = PBXBuildFile; fileRef = 131BDF8C19D06CF10085EA1B /* kana-rule.conf */; };
+		131BDF9119D06CF10085EA1B /* keymap.conf in Resources */ = {isa = PBXBuildFile; fileRef = 131BDF8D19D06CF10085EA1B /* keymap.conf */; };
+		131BDF9219D06CF10085EA1B /* keymap.conf in Resources */ = {isa = PBXBuildFile; fileRef = 131BDF8D19D06CF10085EA1B /* keymap.conf */; };
+		131BDF9319D06CF10085EA1B /* skk.jisyo in Resources */ = {isa = PBXBuildFile; fileRef = 131BDF8E19D06CF10085EA1B /* skk.jisyo */; };
+		131BDF9419D06CF10085EA1B /* skk.jisyo in Resources */ = {isa = PBXBuildFile; fileRef = 131BDF8E19D06CF10085EA1B /* skk.jisyo */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -231,6 +237,9 @@
 		131BDF6119D06CB50085EA1B /* stringutil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stringutil.h; sourceTree = "<group>"; };
 		131BDF6219D06CB50085EA1B /* subrange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = subrange.h; sourceTree = "<group>"; };
 		131BDF6319D06CB50085EA1B /* utf8util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = utf8util.h; sourceTree = "<group>"; };
+		131BDF8C19D06CF10085EA1B /* kana-rule.conf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "kana-rule.conf"; sourceTree = "<group>"; };
+		131BDF8D19D06CF10085EA1B /* keymap.conf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = keymap.conf; sourceTree = "<group>"; };
+		131BDF8E19D06CF10085EA1B /* skk.jisyo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = skk.jisyo; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -261,6 +270,7 @@
 		131BDE8419D06B4A0085EA1B = {
 			isa = PBXGroup;
 			children = (
+				131BDF8B19D06CF10085EA1B /* Resources */,
 				131BDEDA19D06CB50085EA1B /* AquaSKK */,
 				131BDE8F19D06B4A0085EA1B /* SKK-for-iOS */,
 				131BDEA519D06B4A0085EA1B /* SKK-for-iOSTests */,
@@ -576,6 +586,16 @@
 			path = utility;
 			sourceTree = "<group>";
 		};
+		131BDF8B19D06CF10085EA1B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				131BDF8C19D06CF10085EA1B /* kana-rule.conf */,
+				131BDF8D19D06CF10085EA1B /* keymap.conf */,
+				131BDF8E19D06CF10085EA1B /* skk.jisyo */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -682,6 +702,9 @@
 			files = (
 				131BDE9819D06B4A0085EA1B /* Main.storyboard in Resources */,
 				131BDE9D19D06B4A0085EA1B /* LaunchScreen.xib in Resources */,
+				131BDF9119D06CF10085EA1B /* keymap.conf in Resources */,
+				131BDF8F19D06CF10085EA1B /* kana-rule.conf in Resources */,
+				131BDF9319D06CF10085EA1B /* skk.jisyo in Resources */,
 				131BDE9A19D06B4A0085EA1B /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -697,6 +720,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				131BDF9219D06CF10085EA1B /* keymap.conf in Resources */,
+				131BDF9419D06CF10085EA1B /* skk.jisyo in Resources */,
+				131BDF9019D06CF10085EA1B /* kana-rule.conf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
