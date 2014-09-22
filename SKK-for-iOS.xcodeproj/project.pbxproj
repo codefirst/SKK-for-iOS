@@ -60,6 +60,133 @@
 		131BDF9219D06CF10085EA1B /* keymap.conf in Resources */ = {isa = PBXBuildFile; fileRef = 131BDF8D19D06CF10085EA1B /* keymap.conf */; };
 		131BDF9319D06CF10085EA1B /* skk.jisyo in Resources */ = {isa = PBXBuildFile; fileRef = 131BDF8E19D06CF10085EA1B /* skk.jisyo */; };
 		131BDF9419D06CF10085EA1B /* skk.jisyo in Resources */ = {isa = PBXBuildFile; fileRef = 131BDF8E19D06CF10085EA1B /* skk.jisyo */; };
+		131BDFAE19D06EC50085EA1B /* SKKAnnotator.h in Sources */ = {isa = PBXBuildFile; fileRef = 131BDEDC19D06CB50085EA1B /* SKKAnnotator.h */; };
+		131BDFAF19D06EC50085EA1B /* SKKCandidateWindow.h in Sources */ = {isa = PBXBuildFile; fileRef = 131BDEDD19D06CB50085EA1B /* SKKCandidateWindow.h */; };
+		131BDFB019D06EC50085EA1B /* SKKClipboard.h in Sources */ = {isa = PBXBuildFile; fileRef = 131BDEDE19D06CB50085EA1B /* SKKClipboard.h */; };
+		131BDFB119D06EC50085EA1B /* SKKConfig.h in Sources */ = {isa = PBXBuildFile; fileRef = 131BDEDF19D06CB50085EA1B /* SKKConfig.h */; };
+		131BDFB219D06EC50085EA1B /* SKKDynamicCompletor.h in Sources */ = {isa = PBXBuildFile; fileRef = 131BDEE019D06CB50085EA1B /* SKKDynamicCompletor.h */; };
+		131BDFB319D06EC50085EA1B /* SKKFrontEnd.h in Sources */ = {isa = PBXBuildFile; fileRef = 131BDEE119D06CB50085EA1B /* SKKFrontEnd.h */; };
+		131BDFB419D06EC50085EA1B /* SKKInputModeListener.h in Sources */ = {isa = PBXBuildFile; fileRef = 131BDEE219D06CB50085EA1B /* SKKInputModeListener.h */; };
+		131BDFB519D06EC50085EA1B /* SKKInputSessionParameter.h in Sources */ = {isa = PBXBuildFile; fileRef = 131BDEE319D06CB50085EA1B /* SKKInputSessionParameter.h */; };
+		131BDFB619D06EC50085EA1B /* SKKMessenger.h in Sources */ = {isa = PBXBuildFile; fileRef = 131BDEE419D06CB50085EA1B /* SKKMessenger.h */; };
+		131BDFB719D06EC50085EA1B /* SKKWidget.h in Sources */ = {isa = PBXBuildFile; fileRef = 131BDEE519D06CB50085EA1B /* SKKWidget.h */; };
+		131BDFB819D06EC50085EA1B /* SKKBackEnd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 131BDEE819D06CB50085EA1B /* SKKBackEnd.cpp */; };
+		131BDFB919D06EC50085EA1B /* SKKBackEnd.h in Sources */ = {isa = PBXBuildFile; fileRef = 131BDEE919D06CB50085EA1B /* SKKBackEnd.h */; };
+		131BDFBA19D06EC50085EA1B /* SKKCandidateFilter.h in Sources */ = {isa = PBXBuildFile; fileRef = 131BDEEA19D06CB50085EA1B /* SKKCandidateFilter.h */; };
+		131BDFBB19D06EC50085EA1B /* SKKDictionaryCache.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 131BDEEB19D06CB50085EA1B /* SKKDictionaryCache.cpp */; };
+		131BDFBC19D06EC50085EA1B /* SKKDictionaryCache.h in Sources */ = {isa = PBXBuildFile; fileRef = 131BDEEC19D06CB50085EA1B /* SKKDictionaryCache.h */; };
+		131BDFBD19D06EC50085EA1B /* SKKDictionaryFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 131BDEED19D06CB50085EA1B /* SKKDictionaryFactory.cpp */; };
+		131BDFBE19D06EC50085EA1B /* SKKDictionaryFactory.h in Sources */ = {isa = PBXBuildFile; fileRef = 131BDEEE19D06CB50085EA1B /* SKKDictionaryFactory.h */; };
+		131BDFBF19D06EC50085EA1B /* SKKDictionaryKey.h in Sources */ = {isa = PBXBuildFile; fileRef = 131BDEEF19D06CB50085EA1B /* SKKDictionaryKey.h */; };
+		131BDFC019D06EC50085EA1B /* SKKNumericConverter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 131BDEF019D06CB50085EA1B /* SKKNumericConverter.cpp */; };
+		131BDFC119D06EC50085EA1B /* SKKNumericConverter.h in Sources */ = {isa = PBXBuildFile; fileRef = 131BDEF119D06CB50085EA1B /* SKKNumericConverter.h */; };
+		131BDFC219D06EC50085EA1B /* SKKCompleter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 131BDEF319D06CB50085EA1B /* SKKCompleter.cpp */; };
+		131BDFC319D06EC50085EA1B /* SKKCompleter.h in Sources */ = {isa = PBXBuildFile; fileRef = 131BDEF419D06CB50085EA1B /* SKKCompleter.h */; };
+		131BDFC419D06EC50085EA1B /* SKKAutoUpdateDictionary.h in Sources */ = {isa = PBXBuildFile; fileRef = 131BDEF619D06CB50085EA1B /* SKKAutoUpdateDictionary.h */; };
+		131BDFC519D06EC50085EA1B /* SKKBaseDictionary.h in Sources */ = {isa = PBXBuildFile; fileRef = 131BDEF719D06CB50085EA1B /* SKKBaseDictionary.h */; };
+		131BDFC619D06EC50085EA1B /* SKKCommonDictionary.h in Sources */ = {isa = PBXBuildFile; fileRef = 131BDEF819D06CB50085EA1B /* SKKCommonDictionary.h */; };
+		131BDFC719D06EC50085EA1B /* SKKCompletionHelper.h in Sources */ = {isa = PBXBuildFile; fileRef = 131BDEF919D06CB50085EA1B /* SKKCompletionHelper.h */; };
+		131BDFC819D06EC50085EA1B /* SKKDictionaryFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 131BDEFA19D06CB50085EA1B /* SKKDictionaryFile.cpp */; };
+		131BDFC919D06EC50085EA1B /* SKKDictionaryFile.h in Sources */ = {isa = PBXBuildFile; fileRef = 131BDEFB19D06CB50085EA1B /* SKKDictionaryFile.h */; };
+		131BDFCA19D06EC50085EA1B /* SKKDictionaryKeeper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 131BDEFC19D06CB50085EA1B /* SKKDictionaryKeeper.cpp */; };
+		131BDFCB19D06EC50085EA1B /* SKKDictionaryKeeper.h in Sources */ = {isa = PBXBuildFile; fileRef = 131BDEFD19D06CB50085EA1B /* SKKDictionaryKeeper.h */; };
+		131BDFCC19D06EC50085EA1B /* SKKDictionaryLoader.h in Sources */ = {isa = PBXBuildFile; fileRef = 131BDEFE19D06CB50085EA1B /* SKKDictionaryLoader.h */; };
+		131BDFCD19D06EC50085EA1B /* SKKDictionaryTemplate.h in Sources */ = {isa = PBXBuildFile; fileRef = 131BDEFF19D06CB50085EA1B /* SKKDictionaryTemplate.h */; };
+		131BDFCE19D06EC50085EA1B /* SKKDistributedUserDictionary.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 131BDF0019D06CB50085EA1B /* SKKDistributedUserDictionary.cpp */; };
+		131BDFCF19D06EC50085EA1B /* SKKDistributedUserDictionary.h in Sources */ = {isa = PBXBuildFile; fileRef = 131BDF0119D06CB50085EA1B /* SKKDistributedUserDictionary.h */; };
+		131BDFD019D06EC50085EA1B /* SKKGadgetDictionary.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 131BDF0219D06CB50085EA1B /* SKKGadgetDictionary.cpp */; };
+		131BDFD119D06EC50085EA1B /* SKKGadgetDictionary.h in Sources */ = {isa = PBXBuildFile; fileRef = 131BDF0319D06CB50085EA1B /* SKKGadgetDictionary.h */; };
+		131BDFD219D06EC50085EA1B /* SKKHttpDictionaryLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 131BDF0419D06CB50085EA1B /* SKKHttpDictionaryLoader.cpp */; };
+		131BDFD319D06EC50085EA1B /* SKKHttpDictionaryLoader.h in Sources */ = {isa = PBXBuildFile; fileRef = 131BDF0519D06CB50085EA1B /* SKKHttpDictionaryLoader.h */; };
+		131BDFD419D06EC50085EA1B /* SKKLocalDictionaryLoader.h in Sources */ = {isa = PBXBuildFile; fileRef = 131BDF0619D06CB50085EA1B /* SKKLocalDictionaryLoader.h */; };
+		131BDFD519D06EC50085EA1B /* SKKLocalUserDictionary.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 131BDF0719D06CB50085EA1B /* SKKLocalUserDictionary.cpp */; };
+		131BDFD619D06EC50085EA1B /* SKKLocalUserDictionary.h in Sources */ = {isa = PBXBuildFile; fileRef = 131BDF0819D06CB50085EA1B /* SKKLocalUserDictionary.h */; };
+		131BDFD719D06EC50085EA1B /* SKKProxyDictionary.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 131BDF0919D06CB50085EA1B /* SKKProxyDictionary.cpp */; };
+		131BDFD819D06EC50085EA1B /* SKKProxyDictionary.h in Sources */ = {isa = PBXBuildFile; fileRef = 131BDF0A19D06CB50085EA1B /* SKKProxyDictionary.h */; };
+		131BDFD919D06EC50085EA1B /* SKKUserDictionary.h in Sources */ = {isa = PBXBuildFile; fileRef = 131BDF0B19D06CB50085EA1B /* SKKUserDictionary.h */; };
+		131BDFDA19D06EC50085EA1B /* SKKBaseEditor.h in Sources */ = {isa = PBXBuildFile; fileRef = 131BDF0D19D06CB50085EA1B /* SKKBaseEditor.h */; };
+		131BDFDB19D06EC50085EA1B /* SKKCandidateEditor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 131BDF0E19D06CB50085EA1B /* SKKCandidateEditor.cpp */; };
+		131BDFDC19D06EC50085EA1B /* SKKCandidateEditor.h in Sources */ = {isa = PBXBuildFile; fileRef = 131BDF0F19D06CB50085EA1B /* SKKCandidateEditor.h */; };
+		131BDFDD19D06EC50085EA1B /* SKKComposingEditor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 131BDF1019D06CB50085EA1B /* SKKComposingEditor.cpp */; };
+		131BDFDE19D06EC50085EA1B /* SKKComposingEditor.h in Sources */ = {isa = PBXBuildFile; fileRef = 131BDF1119D06CB50085EA1B /* SKKComposingEditor.h */; };
+		131BDFDF19D06EC50085EA1B /* SKKEntryRemoveEditor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 131BDF1219D06CB50085EA1B /* SKKEntryRemoveEditor.cpp */; };
+		131BDFE019D06EC50085EA1B /* SKKEntryRemoveEditor.h in Sources */ = {isa = PBXBuildFile; fileRef = 131BDF1319D06CB50085EA1B /* SKKEntryRemoveEditor.h */; };
+		131BDFE119D06EC50085EA1B /* SKKInputEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 131BDF1419D06CB50085EA1B /* SKKInputEngine.cpp */; };
+		131BDFE219D06EC50085EA1B /* SKKInputEngine.h in Sources */ = {isa = PBXBuildFile; fileRef = 131BDF1519D06CB50085EA1B /* SKKInputEngine.h */; };
+		131BDFE319D06EC50085EA1B /* SKKInputQueue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 131BDF1619D06CB50085EA1B /* SKKInputQueue.cpp */; };
+		131BDFE419D06EC50085EA1B /* SKKInputQueue.h in Sources */ = {isa = PBXBuildFile; fileRef = 131BDF1719D06CB50085EA1B /* SKKInputQueue.h */; };
+		131BDFE519D06EC50085EA1B /* SKKOkuriEditor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 131BDF1819D06CB50085EA1B /* SKKOkuriEditor.cpp */; };
+		131BDFE619D06EC50085EA1B /* SKKOkuriEditor.h in Sources */ = {isa = PBXBuildFile; fileRef = 131BDF1919D06CB50085EA1B /* SKKOkuriEditor.h */; };
+		131BDFE719D06EC50085EA1B /* SKKPrimaryEditor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 131BDF1A19D06CB50085EA1B /* SKKPrimaryEditor.cpp */; };
+		131BDFE819D06EC50085EA1B /* SKKPrimaryEditor.h in Sources */ = {isa = PBXBuildFile; fileRef = 131BDF1B19D06CB50085EA1B /* SKKPrimaryEditor.h */; };
+		131BDFE919D06EC50085EA1B /* SKKRegisterEditor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 131BDF1C19D06CB50085EA1B /* SKKRegisterEditor.cpp */; };
+		131BDFEA19D06EC50085EA1B /* SKKRegisterEditor.h in Sources */ = {isa = PBXBuildFile; fileRef = 131BDF1D19D06CB50085EA1B /* SKKRegisterEditor.h */; };
+		131BDFEB19D06EC50085EA1B /* SKKTextBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 131BDF1E19D06CB50085EA1B /* SKKTextBuffer.cpp */; };
+		131BDFEC19D06EC50085EA1B /* SKKTextBuffer.h in Sources */ = {isa = PBXBuildFile; fileRef = 131BDF1F19D06CB50085EA1B /* SKKTextBuffer.h */; };
+		131BDFED19D06EC50085EA1B /* SKKCandidate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 131BDF2119D06CB50085EA1B /* SKKCandidate.cpp */; };
+		131BDFEE19D06EC50085EA1B /* SKKCandidate.h in Sources */ = {isa = PBXBuildFile; fileRef = 131BDF2219D06CB50085EA1B /* SKKCandidate.h */; };
+		131BDFEF19D06EC50085EA1B /* SKKCandidateParser.h in Sources */ = {isa = PBXBuildFile; fileRef = 131BDF2319D06CB50085EA1B /* SKKCandidateParser.h */; };
+		131BDFF019D06EC50085EA1B /* SKKCandidateSuite.h in Sources */ = {isa = PBXBuildFile; fileRef = 131BDF2419D06CB50085EA1B /* SKKCandidateSuite.h */; };
+		131BDFF119D06EC50085EA1B /* SKKEntry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 131BDF2519D06CB50085EA1B /* SKKEntry.cpp */; };
+		131BDFF219D06EC50085EA1B /* SKKEntry.h in Sources */ = {isa = PBXBuildFile; fileRef = 131BDF2619D06CB50085EA1B /* SKKEntry.h */; };
+		131BDFF319D06EC50085EA1B /* SKKOkuriHint.h in Sources */ = {isa = PBXBuildFile; fileRef = 131BDF2719D06CB50085EA1B /* SKKOkuriHint.h */; };
+		131BDFF419D06EC50085EA1B /* SKKKeymap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 131BDF2919D06CB50085EA1B /* SKKKeymap.cpp */; };
+		131BDFF519D06EC50085EA1B /* SKKKeymap.h in Sources */ = {isa = PBXBuildFile; fileRef = 131BDF2A19D06CB50085EA1B /* SKKKeymap.h */; };
+		131BDFF619D06EC50085EA1B /* SKKKeymapEntry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 131BDF2B19D06CB50085EA1B /* SKKKeymapEntry.cpp */; };
+		131BDFF719D06EC50085EA1B /* SKKKeymapEntry.h in Sources */ = {isa = PBXBuildFile; fileRef = 131BDF2C19D06CB50085EA1B /* SKKKeymapEntry.h */; };
+		131BDFF819D06EC50085EA1B /* SKKKeyState.h in Sources */ = {isa = PBXBuildFile; fileRef = 131BDF2D19D06CB50085EA1B /* SKKKeyState.h */; };
+		131BDFF919D06EC50085EA1B /* SKKBaseSelector.h in Sources */ = {isa = PBXBuildFile; fileRef = 131BDF2F19D06CB50085EA1B /* SKKBaseSelector.h */; };
+		131BDFFA19D06EC50085EA1B /* SKKInlineSelector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 131BDF3019D06CB50085EA1B /* SKKInlineSelector.cpp */; };
+		131BDFFB19D06EC50085EA1B /* SKKInlineSelector.h in Sources */ = {isa = PBXBuildFile; fileRef = 131BDF3119D06CB50085EA1B /* SKKInlineSelector.h */; };
+		131BDFFC19D06EC50085EA1B /* SKKSelector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 131BDF3219D06CB50085EA1B /* SKKSelector.cpp */; };
+		131BDFFD19D06EC50085EA1B /* SKKSelector.h in Sources */ = {isa = PBXBuildFile; fileRef = 131BDF3319D06CB50085EA1B /* SKKSelector.h */; };
+		131BDFFE19D06EC50085EA1B /* SKKWindowSelector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 131BDF3419D06CB50085EA1B /* SKKWindowSelector.cpp */; };
+		131BDFFF19D06EC50085EA1B /* SKKWindowSelector.h in Sources */ = {isa = PBXBuildFile; fileRef = 131BDF3519D06CB50085EA1B /* SKKWindowSelector.h */; };
+		131BE00019D06EC60085EA1B /* SKKInputContext.h in Sources */ = {isa = PBXBuildFile; fileRef = 131BDF3719D06CB50085EA1B /* SKKInputContext.h */; };
+		131BE00119D06EC60085EA1B /* SKKInputEnvironment.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 131BDF3819D06CB50085EA1B /* SKKInputEnvironment.cpp */; };
+		131BE00219D06EC60085EA1B /* SKKInputEnvironment.h in Sources */ = {isa = PBXBuildFile; fileRef = 131BDF3919D06CB50085EA1B /* SKKInputEnvironment.h */; };
+		131BE00319D06EC60085EA1B /* SKKInputMode.h in Sources */ = {isa = PBXBuildFile; fileRef = 131BDF3A19D06CB50085EA1B /* SKKInputMode.h */; };
+		131BE00419D06EC60085EA1B /* SKKInputModeSelector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 131BDF3B19D06CB50085EA1B /* SKKInputModeSelector.cpp */; };
+		131BE00519D06EC60085EA1B /* SKKInputModeSelector.h in Sources */ = {isa = PBXBuildFile; fileRef = 131BDF3C19D06CB50085EA1B /* SKKInputModeSelector.h */; };
+		131BE00619D06EC60085EA1B /* SKKInputSession.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 131BDF3D19D06CB50085EA1B /* SKKInputSession.cpp */; };
+		131BE00719D06EC60085EA1B /* SKKInputSession.h in Sources */ = {isa = PBXBuildFile; fileRef = 131BDF3E19D06CB50085EA1B /* SKKInputSession.h */; };
+		131BE00819D06EC60085EA1B /* SKKOutputBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 131BDF3F19D06CB50085EA1B /* SKKOutputBuffer.cpp */; };
+		131BE00919D06EC60085EA1B /* SKKOutputBuffer.h in Sources */ = {isa = PBXBuildFile; fileRef = 131BDF4019D06CB50085EA1B /* SKKOutputBuffer.h */; };
+		131BE00A19D06EC60085EA1B /* SKKRecursiveEditor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 131BDF4119D06CB50085EA1B /* SKKRecursiveEditor.cpp */; };
+		131BE00B19D06EC60085EA1B /* SKKRecursiveEditor.h in Sources */ = {isa = PBXBuildFile; fileRef = 131BDF4219D06CB50085EA1B /* SKKRecursiveEditor.h */; };
+		131BE00C19D06EC60085EA1B /* SKKRegistration.h in Sources */ = {isa = PBXBuildFile; fileRef = 131BDF4319D06CB50085EA1B /* SKKRegistration.h */; };
+		131BE00D19D06EC60085EA1B /* SKKUndoContext.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 131BDF4419D06CB50085EA1B /* SKKUndoContext.cpp */; };
+		131BE00E19D06EC60085EA1B /* SKKUndoContext.h in Sources */ = {isa = PBXBuildFile; fileRef = 131BDF4519D06CB50085EA1B /* SKKUndoContext.h */; };
+		131BE00F19D06EC60085EA1B /* skkserv.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 131BDF4719D06CB50085EA1B /* skkserv.cpp */; };
+		131BE01019D06EC60085EA1B /* skkserv.h in Sources */ = {isa = PBXBuildFile; fileRef = 131BDF4819D06CB50085EA1B /* skkserv.h */; };
+		131BE01119D06EC60085EA1B /* GenericStateMachine.h in Sources */ = {isa = PBXBuildFile; fileRef = 131BDF4A19D06CB50085EA1B /* GenericStateMachine.h */; };
+		131BE01219D06EC60085EA1B /* SKKEvent.h in Sources */ = {isa = PBXBuildFile; fileRef = 131BDF4B19D06CB50085EA1B /* SKKEvent.h */; };
+		131BE01319D06EC60085EA1B /* SKKState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 131BDF4C19D06CB50085EA1B /* SKKState.cpp */; };
+		131BE01419D06EC60085EA1B /* SKKState.h in Sources */ = {isa = PBXBuildFile; fileRef = 131BDF4D19D06CB50085EA1B /* SKKState.h */; };
+		131BE01519D06EC60085EA1B /* SKKStateComposing-inl.h in Sources */ = {isa = PBXBuildFile; fileRef = 131BDF4E19D06CB50085EA1B /* SKKStateComposing-inl.h */; };
+		131BE01619D06EC60085EA1B /* SKKStateEntryRemove-inl.h in Sources */ = {isa = PBXBuildFile; fileRef = 131BDF4F19D06CB50085EA1B /* SKKStateEntryRemove-inl.h */; };
+		131BE01719D06EC60085EA1B /* SKKStateMachine.h in Sources */ = {isa = PBXBuildFile; fileRef = 131BDF5019D06CB50085EA1B /* SKKStateMachine.h */; };
+		131BE01819D06EC60085EA1B /* SKKStatePrimary-inl.h in Sources */ = {isa = PBXBuildFile; fileRef = 131BDF5119D06CB50085EA1B /* SKKStatePrimary-inl.h */; };
+		131BE01919D06EC60085EA1B /* SKKStateRecursiveRegister-inl.h in Sources */ = {isa = PBXBuildFile; fileRef = 131BDF5219D06CB50085EA1B /* SKKStateRecursiveRegister-inl.h */; };
+		131BE01A19D06EC60085EA1B /* SKKRomanKanaConverter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 131BDF5419D06CB50085EA1B /* SKKRomanKanaConverter.cpp */; };
+		131BE01B19D06EC60085EA1B /* SKKRomanKanaConverter.h in Sources */ = {isa = PBXBuildFile; fileRef = 131BDF5519D06CB50085EA1B /* SKKRomanKanaConverter.h */; };
+		131BE01C19D06EC60085EA1B /* SKKTrie.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 131BDF5619D06CB50085EA1B /* SKKTrie.cpp */; };
+		131BE01D19D06EC60085EA1B /* SKKTrie.h in Sources */ = {isa = PBXBuildFile; fileRef = 131BDF5719D06CB50085EA1B /* SKKTrie.h */; };
+		131BE01E19D06EC60085EA1B /* calculator.h in Sources */ = {isa = PBXBuildFile; fileRef = 131BDF5919D06CB50085EA1B /* calculator.h */; };
+		131BE01F19D06EC60085EA1B /* jconv.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 131BDF5A19D06CB50085EA1B /* jconv.cpp */; };
+		131BE02019D06EC60085EA1B /* jconv.h in Sources */ = {isa = PBXBuildFile; fileRef = 131BDF5B19D06CB50085EA1B /* jconv.h */; };
+		131BE02119D06EC60085EA1B /* jconv_body-inl.h in Sources */ = {isa = PBXBuildFile; fileRef = 131BDF5C19D06CB50085EA1B /* jconv_body-inl.h */; };
+		131BE02219D06EC60085EA1B /* jconv_eucj2ucs-inl.h in Sources */ = {isa = PBXBuildFile; fileRef = 131BDF5D19D06CB50085EA1B /* jconv_eucj2ucs-inl.h */; };
+		131BE02319D06EC60085EA1B /* jconv_ucs2eucj-inl.h in Sources */ = {isa = PBXBuildFile; fileRef = 131BDF5E19D06CB50085EA1B /* jconv_ucs2eucj-inl.h */; };
+		131BE02419D06EC60085EA1B /* pthreadutil.h in Sources */ = {isa = PBXBuildFile; fileRef = 131BDF5F19D06CB50085EA1B /* pthreadutil.h */; };
+		131BE02519D06EC60085EA1B /* socketutil.h in Sources */ = {isa = PBXBuildFile; fileRef = 131BDF6019D06CB50085EA1B /* socketutil.h */; };
+		131BE02619D06EC60085EA1B /* stringutil.h in Sources */ = {isa = PBXBuildFile; fileRef = 131BDF6119D06CB50085EA1B /* stringutil.h */; };
+		131BE02719D06EC60085EA1B /* subrange.h in Sources */ = {isa = PBXBuildFile; fileRef = 131BDF6219D06CB50085EA1B /* subrange.h */; };
+		131BE02819D06EC60085EA1B /* utf8util.h in Sources */ = {isa = PBXBuildFile; fileRef = 131BDF6319D06CB50085EA1B /* utf8util.h */; };
+		131BE04F19D06F6D0085EA1B /* MacFrontEnd.mm in Sources */ = {isa = PBXBuildFile; fileRef = 131BE03F19D06F6D0085EA1B /* MacFrontEnd.mm */; };
+		131BE05019D06F6D0085EA1B /* MacFrontEnd.mm in Sources */ = {isa = PBXBuildFile; fileRef = 131BE03F19D06F6D0085EA1B /* MacFrontEnd.mm */; };
+		131BE05119D06F6D0085EA1B /* SKKWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 131BE04D19D06F6D0085EA1B /* SKKWrapper.mm */; };
+		131BE05219D06F6D0085EA1B /* SKKWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 131BE04D19D06F6D0085EA1B /* SKKWrapper.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -240,6 +367,23 @@
 		131BDF8C19D06CF10085EA1B /* kana-rule.conf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "kana-rule.conf"; sourceTree = "<group>"; };
 		131BDF8D19D06CF10085EA1B /* keymap.conf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = keymap.conf; sourceTree = "<group>"; };
 		131BDF8E19D06CF10085EA1B /* skk.jisyo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = skk.jisyo; sourceTree = "<group>"; };
+		131BE03E19D06F6D0085EA1B /* MacFrontEnd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MacFrontEnd.h; sourceTree = "<group>"; };
+		131BE03F19D06F6D0085EA1B /* MacFrontEnd.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MacFrontEnd.mm; sourceTree = "<group>"; };
+		131BE04019D06F6D0085EA1B /* MacInputSessionParameter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MacInputSessionParameter.h; sourceTree = "<group>"; };
+		131BE04119D06F6D0085EA1B /* MockAnnotator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockAnnotator.h; sourceTree = "<group>"; };
+		131BE04219D06F6D0085EA1B /* MockCandidateWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockCandidateWindow.h; sourceTree = "<group>"; };
+		131BE04319D06F6D0085EA1B /* MockClipboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockClipboard.h; sourceTree = "<group>"; };
+		131BE04419D06F6D0085EA1B /* MockCompletionHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockCompletionHelper.h; sourceTree = "<group>"; };
+		131BE04519D06F6D0085EA1B /* MockConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockConfig.h; sourceTree = "<group>"; };
+		131BE04619D06F6D0085EA1B /* MockDynamicCompletor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockDynamicCompletor.h; sourceTree = "<group>"; };
+		131BE04719D06F6D0085EA1B /* MockFrontEnd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockFrontEnd.h; sourceTree = "<group>"; };
+		131BE04819D06F6D0085EA1B /* MockInputSessionParameter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockInputSessionParameter.h; sourceTree = "<group>"; };
+		131BE04919D06F6D0085EA1B /* MockMessenger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockMessenger.h; sourceTree = "<group>"; };
+		131BE04A19D06F6D0085EA1B /* MockRegistrationObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockRegistrationObserver.h; sourceTree = "<group>"; };
+		131BE04B19D06F6D0085EA1B /* SKK-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SKK-Bridging-Header.h"; sourceTree = "<group>"; };
+		131BE04C19D06F6D0085EA1B /* SKKWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKKWrapper.h; sourceTree = "<group>"; };
+		131BE04D19D06F6D0085EA1B /* SKKWrapper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SKKWrapper.mm; sourceTree = "<group>"; };
+		131BE04E19D06F6D0085EA1B /* TestResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestResult.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -330,6 +474,7 @@
 		131BDECA19D06B8A0085EA1B /* SKK-Keyboard */ = {
 			isa = PBXGroup;
 			children = (
+				131BDFA119D06D610085EA1B /* skk */,
 				131BDECD19D06B8A0085EA1B /* KeyboardViewController.swift */,
 				131BDECB19D06B8A0085EA1B /* Supporting Files */,
 			);
@@ -596,6 +741,30 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		131BDFA119D06D610085EA1B /* skk */ = {
+			isa = PBXGroup;
+			children = (
+				131BE03E19D06F6D0085EA1B /* MacFrontEnd.h */,
+				131BE03F19D06F6D0085EA1B /* MacFrontEnd.mm */,
+				131BE04019D06F6D0085EA1B /* MacInputSessionParameter.h */,
+				131BE04119D06F6D0085EA1B /* MockAnnotator.h */,
+				131BE04219D06F6D0085EA1B /* MockCandidateWindow.h */,
+				131BE04319D06F6D0085EA1B /* MockClipboard.h */,
+				131BE04419D06F6D0085EA1B /* MockCompletionHelper.h */,
+				131BE04519D06F6D0085EA1B /* MockConfig.h */,
+				131BE04619D06F6D0085EA1B /* MockDynamicCompletor.h */,
+				131BE04719D06F6D0085EA1B /* MockFrontEnd.h */,
+				131BE04819D06F6D0085EA1B /* MockInputSessionParameter.h */,
+				131BE04919D06F6D0085EA1B /* MockMessenger.h */,
+				131BE04A19D06F6D0085EA1B /* MockRegistrationObserver.h */,
+				131BE04B19D06F6D0085EA1B /* SKK-Bridging-Header.h */,
+				131BE04C19D06F6D0085EA1B /* SKKWrapper.h */,
+				131BE04D19D06F6D0085EA1B /* SKKWrapper.mm */,
+				131BE04E19D06F6D0085EA1B /* TestResult.h */,
+			);
+			path = skk;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -740,6 +909,7 @@
 				131BDF8019D06CB50085EA1B /* SKKInputEnvironment.cpp in Sources */,
 				131BDF6D19D06CB50085EA1B /* SKKHttpDictionaryLoader.cpp in Sources */,
 				131BDE9519D06B4A0085EA1B /* ViewController.swift in Sources */,
+				131BE05119D06F6D0085EA1B /* SKKWrapper.mm in Sources */,
 				131BDF6619D06CB50085EA1B /* SKKDictionaryFactory.cpp in Sources */,
 				131BDF8819D06CB50085EA1B /* SKKRomanKanaConverter.cpp in Sources */,
 				131BDF8219D06CB50085EA1B /* SKKInputSession.cpp in Sources */,
@@ -748,6 +918,7 @@
 				131BDF7919D06CB50085EA1B /* SKKCandidate.cpp in Sources */,
 				131BDF7F19D06CB50085EA1B /* SKKWindowSelector.cpp in Sources */,
 				131BDF6419D06CB50085EA1B /* SKKBackEnd.cpp in Sources */,
+				131BE04F19D06F6D0085EA1B /* MacFrontEnd.mm in Sources */,
 				131BDF7119D06CB50085EA1B /* SKKComposingEditor.cpp in Sources */,
 				131BDF7419D06CB50085EA1B /* SKKInputQueue.cpp in Sources */,
 				131BDF7019D06CB50085EA1B /* SKKCandidateEditor.cpp in Sources */,
@@ -789,6 +960,131 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				131BDFAE19D06EC50085EA1B /* SKKAnnotator.h in Sources */,
+				131BDFAF19D06EC50085EA1B /* SKKCandidateWindow.h in Sources */,
+				131BDFB019D06EC50085EA1B /* SKKClipboard.h in Sources */,
+				131BDFB119D06EC50085EA1B /* SKKConfig.h in Sources */,
+				131BDFB219D06EC50085EA1B /* SKKDynamicCompletor.h in Sources */,
+				131BDFB319D06EC50085EA1B /* SKKFrontEnd.h in Sources */,
+				131BDFB419D06EC50085EA1B /* SKKInputModeListener.h in Sources */,
+				131BDFB519D06EC50085EA1B /* SKKInputSessionParameter.h in Sources */,
+				131BDFB619D06EC50085EA1B /* SKKMessenger.h in Sources */,
+				131BDFB719D06EC50085EA1B /* SKKWidget.h in Sources */,
+				131BDFB819D06EC50085EA1B /* SKKBackEnd.cpp in Sources */,
+				131BDFB919D06EC50085EA1B /* SKKBackEnd.h in Sources */,
+				131BDFBA19D06EC50085EA1B /* SKKCandidateFilter.h in Sources */,
+				131BDFBB19D06EC50085EA1B /* SKKDictionaryCache.cpp in Sources */,
+				131BDFBC19D06EC50085EA1B /* SKKDictionaryCache.h in Sources */,
+				131BDFBD19D06EC50085EA1B /* SKKDictionaryFactory.cpp in Sources */,
+				131BDFBE19D06EC50085EA1B /* SKKDictionaryFactory.h in Sources */,
+				131BDFBF19D06EC50085EA1B /* SKKDictionaryKey.h in Sources */,
+				131BDFC019D06EC50085EA1B /* SKKNumericConverter.cpp in Sources */,
+				131BDFC119D06EC50085EA1B /* SKKNumericConverter.h in Sources */,
+				131BDFC219D06EC50085EA1B /* SKKCompleter.cpp in Sources */,
+				131BDFC319D06EC50085EA1B /* SKKCompleter.h in Sources */,
+				131BDFC419D06EC50085EA1B /* SKKAutoUpdateDictionary.h in Sources */,
+				131BDFC519D06EC50085EA1B /* SKKBaseDictionary.h in Sources */,
+				131BDFC619D06EC50085EA1B /* SKKCommonDictionary.h in Sources */,
+				131BDFC719D06EC50085EA1B /* SKKCompletionHelper.h in Sources */,
+				131BDFC819D06EC50085EA1B /* SKKDictionaryFile.cpp in Sources */,
+				131BDFC919D06EC50085EA1B /* SKKDictionaryFile.h in Sources */,
+				131BDFCA19D06EC50085EA1B /* SKKDictionaryKeeper.cpp in Sources */,
+				131BDFCB19D06EC50085EA1B /* SKKDictionaryKeeper.h in Sources */,
+				131BDFCC19D06EC50085EA1B /* SKKDictionaryLoader.h in Sources */,
+				131BDFCD19D06EC50085EA1B /* SKKDictionaryTemplate.h in Sources */,
+				131BDFCE19D06EC50085EA1B /* SKKDistributedUserDictionary.cpp in Sources */,
+				131BDFCF19D06EC50085EA1B /* SKKDistributedUserDictionary.h in Sources */,
+				131BDFD019D06EC50085EA1B /* SKKGadgetDictionary.cpp in Sources */,
+				131BDFD119D06EC50085EA1B /* SKKGadgetDictionary.h in Sources */,
+				131BDFD219D06EC50085EA1B /* SKKHttpDictionaryLoader.cpp in Sources */,
+				131BDFD319D06EC50085EA1B /* SKKHttpDictionaryLoader.h in Sources */,
+				131BDFD419D06EC50085EA1B /* SKKLocalDictionaryLoader.h in Sources */,
+				131BDFD519D06EC50085EA1B /* SKKLocalUserDictionary.cpp in Sources */,
+				131BDFD619D06EC50085EA1B /* SKKLocalUserDictionary.h in Sources */,
+				131BDFD719D06EC50085EA1B /* SKKProxyDictionary.cpp in Sources */,
+				131BDFD819D06EC50085EA1B /* SKKProxyDictionary.h in Sources */,
+				131BDFD919D06EC50085EA1B /* SKKUserDictionary.h in Sources */,
+				131BDFDA19D06EC50085EA1B /* SKKBaseEditor.h in Sources */,
+				131BDFDB19D06EC50085EA1B /* SKKCandidateEditor.cpp in Sources */,
+				131BDFDC19D06EC50085EA1B /* SKKCandidateEditor.h in Sources */,
+				131BDFDD19D06EC50085EA1B /* SKKComposingEditor.cpp in Sources */,
+				131BDFDE19D06EC50085EA1B /* SKKComposingEditor.h in Sources */,
+				131BDFDF19D06EC50085EA1B /* SKKEntryRemoveEditor.cpp in Sources */,
+				131BDFE019D06EC50085EA1B /* SKKEntryRemoveEditor.h in Sources */,
+				131BDFE119D06EC50085EA1B /* SKKInputEngine.cpp in Sources */,
+				131BDFE219D06EC50085EA1B /* SKKInputEngine.h in Sources */,
+				131BDFE319D06EC50085EA1B /* SKKInputQueue.cpp in Sources */,
+				131BDFE419D06EC50085EA1B /* SKKInputQueue.h in Sources */,
+				131BDFE519D06EC50085EA1B /* SKKOkuriEditor.cpp in Sources */,
+				131BDFE619D06EC50085EA1B /* SKKOkuriEditor.h in Sources */,
+				131BDFE719D06EC50085EA1B /* SKKPrimaryEditor.cpp in Sources */,
+				131BDFE819D06EC50085EA1B /* SKKPrimaryEditor.h in Sources */,
+				131BE05019D06F6D0085EA1B /* MacFrontEnd.mm in Sources */,
+				131BDFE919D06EC50085EA1B /* SKKRegisterEditor.cpp in Sources */,
+				131BDFEA19D06EC50085EA1B /* SKKRegisterEditor.h in Sources */,
+				131BDFEB19D06EC50085EA1B /* SKKTextBuffer.cpp in Sources */,
+				131BDFEC19D06EC50085EA1B /* SKKTextBuffer.h in Sources */,
+				131BDFED19D06EC50085EA1B /* SKKCandidate.cpp in Sources */,
+				131BE05219D06F6D0085EA1B /* SKKWrapper.mm in Sources */,
+				131BDFEE19D06EC50085EA1B /* SKKCandidate.h in Sources */,
+				131BDFEF19D06EC50085EA1B /* SKKCandidateParser.h in Sources */,
+				131BDFF019D06EC50085EA1B /* SKKCandidateSuite.h in Sources */,
+				131BDFF119D06EC50085EA1B /* SKKEntry.cpp in Sources */,
+				131BDFF219D06EC50085EA1B /* SKKEntry.h in Sources */,
+				131BDFF319D06EC50085EA1B /* SKKOkuriHint.h in Sources */,
+				131BDFF419D06EC50085EA1B /* SKKKeymap.cpp in Sources */,
+				131BDFF519D06EC50085EA1B /* SKKKeymap.h in Sources */,
+				131BDFF619D06EC50085EA1B /* SKKKeymapEntry.cpp in Sources */,
+				131BDFF719D06EC50085EA1B /* SKKKeymapEntry.h in Sources */,
+				131BDFF819D06EC50085EA1B /* SKKKeyState.h in Sources */,
+				131BDFF919D06EC50085EA1B /* SKKBaseSelector.h in Sources */,
+				131BDFFA19D06EC50085EA1B /* SKKInlineSelector.cpp in Sources */,
+				131BDFFB19D06EC50085EA1B /* SKKInlineSelector.h in Sources */,
+				131BDFFC19D06EC50085EA1B /* SKKSelector.cpp in Sources */,
+				131BDFFD19D06EC50085EA1B /* SKKSelector.h in Sources */,
+				131BDFFE19D06EC50085EA1B /* SKKWindowSelector.cpp in Sources */,
+				131BDFFF19D06EC50085EA1B /* SKKWindowSelector.h in Sources */,
+				131BE00019D06EC60085EA1B /* SKKInputContext.h in Sources */,
+				131BE00119D06EC60085EA1B /* SKKInputEnvironment.cpp in Sources */,
+				131BE00219D06EC60085EA1B /* SKKInputEnvironment.h in Sources */,
+				131BE00319D06EC60085EA1B /* SKKInputMode.h in Sources */,
+				131BE00419D06EC60085EA1B /* SKKInputModeSelector.cpp in Sources */,
+				131BE00519D06EC60085EA1B /* SKKInputModeSelector.h in Sources */,
+				131BE00619D06EC60085EA1B /* SKKInputSession.cpp in Sources */,
+				131BE00719D06EC60085EA1B /* SKKInputSession.h in Sources */,
+				131BE00819D06EC60085EA1B /* SKKOutputBuffer.cpp in Sources */,
+				131BE00919D06EC60085EA1B /* SKKOutputBuffer.h in Sources */,
+				131BE00A19D06EC60085EA1B /* SKKRecursiveEditor.cpp in Sources */,
+				131BE00B19D06EC60085EA1B /* SKKRecursiveEditor.h in Sources */,
+				131BE00C19D06EC60085EA1B /* SKKRegistration.h in Sources */,
+				131BE00D19D06EC60085EA1B /* SKKUndoContext.cpp in Sources */,
+				131BE00E19D06EC60085EA1B /* SKKUndoContext.h in Sources */,
+				131BE00F19D06EC60085EA1B /* skkserv.cpp in Sources */,
+				131BE01019D06EC60085EA1B /* skkserv.h in Sources */,
+				131BE01119D06EC60085EA1B /* GenericStateMachine.h in Sources */,
+				131BE01219D06EC60085EA1B /* SKKEvent.h in Sources */,
+				131BE01319D06EC60085EA1B /* SKKState.cpp in Sources */,
+				131BE01419D06EC60085EA1B /* SKKState.h in Sources */,
+				131BE01519D06EC60085EA1B /* SKKStateComposing-inl.h in Sources */,
+				131BE01619D06EC60085EA1B /* SKKStateEntryRemove-inl.h in Sources */,
+				131BE01719D06EC60085EA1B /* SKKStateMachine.h in Sources */,
+				131BE01819D06EC60085EA1B /* SKKStatePrimary-inl.h in Sources */,
+				131BE01919D06EC60085EA1B /* SKKStateRecursiveRegister-inl.h in Sources */,
+				131BE01A19D06EC60085EA1B /* SKKRomanKanaConverter.cpp in Sources */,
+				131BE01B19D06EC60085EA1B /* SKKRomanKanaConverter.h in Sources */,
+				131BE01C19D06EC60085EA1B /* SKKTrie.cpp in Sources */,
+				131BE01D19D06EC60085EA1B /* SKKTrie.h in Sources */,
+				131BE01E19D06EC60085EA1B /* calculator.h in Sources */,
+				131BE01F19D06EC60085EA1B /* jconv.cpp in Sources */,
+				131BE02019D06EC60085EA1B /* jconv.h in Sources */,
+				131BE02119D06EC60085EA1B /* jconv_body-inl.h in Sources */,
+				131BE02219D06EC60085EA1B /* jconv_eucj2ucs-inl.h in Sources */,
+				131BE02319D06EC60085EA1B /* jconv_ucs2eucj-inl.h in Sources */,
+				131BE02419D06EC60085EA1B /* pthreadutil.h in Sources */,
+				131BE02519D06EC60085EA1B /* socketutil.h in Sources */,
+				131BE02619D06EC60085EA1B /* stringutil.h in Sources */,
+				131BE02719D06EC60085EA1B /* subrange.h in Sources */,
+				131BE02819D06EC60085EA1B /* utf8util.h in Sources */,
 				131BDECE19D06B8A0085EA1B /* KeyboardViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
