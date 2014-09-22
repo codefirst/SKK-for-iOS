@@ -13,6 +13,8 @@
 		131BDE9A19D06B4A0085EA1B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 131BDE9919D06B4A0085EA1B /* Images.xcassets */; };
 		131BDE9D19D06B4A0085EA1B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 131BDE9B19D06B4A0085EA1B /* LaunchScreen.xib */; };
 		131BDEA919D06B4A0085EA1B /* SKK_for_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131BDEA819D06B4A0085EA1B /* SKK_for_iOSTests.swift */; };
+		131BDECE19D06B8A0085EA1B /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131BDECD19D06B8A0085EA1B /* KeyboardViewController.swift */; };
+		131BDED119D06B8A0085EA1B /* SKK-Keyboard.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 131BDEC919D06B8A0085EA1B /* SKK-Keyboard.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -23,7 +25,35 @@
 			remoteGlobalIDString = 131BDE8C19D06B4A0085EA1B;
 			remoteInfo = "SKK-for-iOS";
 		};
+		131BDECF19D06B8A0085EA1B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 131BDE8519D06B4A0085EA1B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 131BDEC819D06B8A0085EA1B;
+			remoteInfo = "SKK-Keyboard";
+		};
+		131BDED219D06B8A0085EA1B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 131BDE8519D06B4A0085EA1B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 131BDEC819D06B8A0085EA1B;
+			remoteInfo = "SKK-Keyboard";
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		131BDEC419D06B780085EA1B /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				131BDED119D06B8A0085EA1B /* SKK-Keyboard.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		131BDE8D19D06B4A0085EA1B /* SKK-for-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SKK-for-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -36,6 +66,9 @@
 		131BDEA219D06B4A0085EA1B /* SKK-for-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SKK-for-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		131BDEA719D06B4A0085EA1B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		131BDEA819D06B4A0085EA1B /* SKK_for_iOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKK_for_iOSTests.swift; sourceTree = "<group>"; };
+		131BDEC919D06B8A0085EA1B /* SKK-Keyboard.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "SKK-Keyboard.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		131BDECC19D06B8A0085EA1B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		131BDECD19D06B8A0085EA1B /* KeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +86,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		131BDEC619D06B8A0085EA1B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -61,6 +101,7 @@
 			children = (
 				131BDE8F19D06B4A0085EA1B /* SKK-for-iOS */,
 				131BDEA519D06B4A0085EA1B /* SKK-for-iOSTests */,
+				131BDECA19D06B8A0085EA1B /* SKK-Keyboard */,
 				131BDE8E19D06B4A0085EA1B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -70,6 +111,7 @@
 			children = (
 				131BDE8D19D06B4A0085EA1B /* SKK-for-iOS.app */,
 				131BDEA219D06B4A0085EA1B /* SKK-for-iOSTests.xctest */,
+				131BDEC919D06B8A0085EA1B /* SKK-Keyboard.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -112,6 +154,23 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		131BDECA19D06B8A0085EA1B /* SKK-Keyboard */ = {
+			isa = PBXGroup;
+			children = (
+				131BDECD19D06B8A0085EA1B /* KeyboardViewController.swift */,
+				131BDECB19D06B8A0085EA1B /* Supporting Files */,
+			);
+			path = "SKK-Keyboard";
+			sourceTree = "<group>";
+		};
+		131BDECB19D06B8A0085EA1B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				131BDECC19D06B8A0085EA1B /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -122,10 +181,13 @@
 				131BDE8919D06B4A0085EA1B /* Sources */,
 				131BDE8A19D06B4A0085EA1B /* Frameworks */,
 				131BDE8B19D06B4A0085EA1B /* Resources */,
+				131BDEC419D06B780085EA1B /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				131BDED019D06B8A0085EA1B /* PBXTargetDependency */,
+				131BDED319D06B8A0085EA1B /* PBXTargetDependency */,
 			);
 			name = "SKK-for-iOS";
 			productName = "SKK-for-iOS";
@@ -150,6 +212,23 @@
 			productReference = 131BDEA219D06B4A0085EA1B /* SKK-for-iOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		131BDEC819D06B8A0085EA1B /* SKK-Keyboard */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 131BDED419D06B8A0085EA1B /* Build configuration list for PBXNativeTarget "SKK-Keyboard" */;
+			buildPhases = (
+				131BDEC519D06B8A0085EA1B /* Sources */,
+				131BDEC619D06B8A0085EA1B /* Frameworks */,
+				131BDEC719D06B8A0085EA1B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "SKK-Keyboard";
+			productName = "SKK-Keyboard";
+			productReference = 131BDEC919D06B8A0085EA1B /* SKK-Keyboard.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -165,6 +244,9 @@
 					131BDEA119D06B4A0085EA1B = {
 						CreatedOnToolsVersion = 6.0.1;
 						TestTargetID = 131BDE8C19D06B4A0085EA1B;
+					};
+					131BDEC819D06B8A0085EA1B = {
+						CreatedOnToolsVersion = 6.0.1;
 					};
 				};
 			};
@@ -183,6 +265,7 @@
 			targets = (
 				131BDE8C19D06B4A0085EA1B /* SKK-for-iOS */,
 				131BDEA119D06B4A0085EA1B /* SKK-for-iOSTests */,
+				131BDEC819D06B8A0085EA1B /* SKK-Keyboard */,
 			);
 		};
 /* End PBXProject section */
@@ -199,6 +282,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		131BDEA019D06B4A0085EA1B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		131BDEC719D06B8A0085EA1B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -225,6 +315,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		131BDEC519D06B8A0085EA1B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				131BDECE19D06B8A0085EA1B /* KeyboardViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -232,6 +330,16 @@
 			isa = PBXTargetDependency;
 			target = 131BDE8C19D06B4A0085EA1B /* SKK-for-iOS */;
 			targetProxy = 131BDEA319D06B4A0085EA1B /* PBXContainerItemProxy */;
+		};
+		131BDED019D06B8A0085EA1B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 131BDEC819D06B8A0085EA1B /* SKK-Keyboard */;
+			targetProxy = 131BDECF19D06B8A0085EA1B /* PBXContainerItemProxy */;
+		};
+		131BDED319D06B8A0085EA1B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 131BDEC819D06B8A0085EA1B /* SKK-Keyboard */;
+			targetProxy = 131BDED219D06B8A0085EA1B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -388,6 +496,30 @@
 			};
 			name = Release;
 		};
+		131BDED519D06B8A0085EA1B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "SKK-Keyboard/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		131BDED619D06B8A0085EA1B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "SKK-Keyboard/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -413,6 +545,14 @@
 			buildConfigurations = (
 				131BDEB019D06B4A0085EA1B /* Debug */,
 				131BDEB119D06B4A0085EA1B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		131BDED419D06B8A0085EA1B /* Build configuration list for PBXNativeTarget "SKK-Keyboard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				131BDED519D06B8A0085EA1B /* Debug */,
+				131BDED619D06B8A0085EA1B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
