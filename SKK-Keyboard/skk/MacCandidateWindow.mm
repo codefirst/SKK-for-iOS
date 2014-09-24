@@ -29,5 +29,5 @@ void MacCandidateWindow::Update(SKKCandidateIterator begin,
 }
 
 int MacCandidateWindow::LabelIndex(char label) {
-    return 0;
+    return label - 0x20;
 }
