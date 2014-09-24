@@ -22,6 +22,9 @@ class KeyboardViewController: UIInputViewController, WrapperParameter {
     
     let compose : UILabel = UILabel()
     
+    let candidateScrollView : UIScrollView = UIScrollView()
+    let candidate : UIView = UIView()
+    
     var mods : Int = 0
     
     let Keyboards : [[(String, Keycode)]] = [[
@@ -75,8 +78,14 @@ class KeyboardViewController: UIInputViewController, WrapperParameter {
 
         // compose
         compose.text = "welcome to SKK for iOS"
-        compose.frame = CGRect(x: 10, y:0 , width: 300, height: 35)
+        compose.frame = CGRect(x: 10, y:0 , width: 300, height: 40)
         view.addSubview(compose)
+        
+        // candidate
+        let screenWidth = UIScreen.mainScreen().bounds.width
+        candidateScrollView.frame = CGRect(x: 0, y:0, width: screenWidth, height: 40)
+        candidateScrollView.addSubview(candidate)
+
         
         // Keyboard layout
         for (i, cs) in enumerate(Keyboards) {
@@ -131,6 +140,42 @@ class KeyboardViewController: UIInputViewController, WrapperParameter {
     
     func composeText(text: String!) {
         compose.text = text
+        
+        
     }
+    
+    func updateCandidate(xs: NSMutableArray!) {
+        compose.removeFromSuperview()
+        view.addSubview(candidateScrollView)
+        
+        
+        for x in candidate.subviews {
+            x.removeFromSuperview()
+        }
+        
+        let font = UIFont.systemFontOfSize(24)
+        var pos : CGFloat = 5
+        for x in xs {
+            let s = (x as NSString)
+            let button  = UIButton.buttonWithType(.System) as UIButton
+            let size = s.sizeWithAttributes([NSFontAttributeName: font])
+            button.setTitle(s, forState: .Normal)
+            button.titleLabel?.font = font
+            button.layer.borderWidth = 0.5
+            button.frame = CGRect(x: pos, y: 5, width: size.width, height: size.height)
+            button.addTarget(self, action: "handleCandidate:", forControlEvents: UIControlEvents.TouchUpInside)
+            
+            candidate.addSubview(button)
+            
+            pos += size.width + 2
+        }
+        candidateScrollView.contentSize = CGSize(width: pos, height: 40)
+        return;
+    }
+    
+    func handleCandidate(sender : UIButton) {
+        return;
+    }
+
 
 }

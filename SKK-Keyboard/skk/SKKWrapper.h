@@ -15,6 +15,7 @@
 @protocol WrapperParameter<NSObject>
 - (void)insertText: (NSString*)text;
 - (void)composeText: (NSString*)text;
+- (void)updateCandidate: (NSMutableArray*)xs;
 @end
 
 @interface SKKWrapper : NSObject {

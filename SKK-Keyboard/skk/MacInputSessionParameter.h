@@ -15,7 +15,7 @@
 #include "MockFrontEnd.h"
 #include "MockMessenger.h"
 #include "MockClipboard.h"
-#include "MockCandidateWindow.h"
+#include "MacCandidateWindow.h"
 #include "MockAnnotator.h"
 #include "MockDynamicCompletor.h"
 #include "MacFrontEnd.h"
@@ -25,23 +25,23 @@ class MacInputSessionParameter : public SKKInputSessionParameter {
     MacFrontEnd* frontend_;
     MockMessenger messenger_;
     MockClipboard clipboard_;
-    MockCandidateWindow candidate_;
+    MacCandidateWindow* candidate_;
     MockAnnotator annotator_;
     MockDynamicCompletor completor_;
     
 public:
-    MacInputSessionParameter(id<WrapperParameter> delegate) : frontend_(new MacFrontEnd(delegate)) {}
+    MacInputSessionParameter(id<WrapperParameter> delegate) :
+        frontend_(new MacFrontEnd(delegate)),
+        candidate_(new MacCandidateWindow(delegate))
+    {}
     
     virtual SKKConfig* Config() { return &config_; }
     virtual SKKFrontEnd* FrontEnd() { return frontend_; }
     virtual SKKMessenger* Messenger() { return &messenger_; }
     virtual SKKClipboard* Clipboard() { return &clipboard_; }
-    virtual SKKCandidateWindow* CandidateWindow() { return &candidate_; }
+    virtual SKKCandidateWindow* CandidateWindow() { return candidate_; }
     virtual SKKAnnotator* Annotator() { return &annotator_; }
     virtual SKKDynamicCompletor* DynamicCompletor() { return &completor_; }
-    
-//    void SetSelectedString(const std::string& str) { frontend_->SetSelectedString(str); }
-//    void SetYankString(const std::string& str) { clipboard_.SetString(str); }
 };
 
 #endif

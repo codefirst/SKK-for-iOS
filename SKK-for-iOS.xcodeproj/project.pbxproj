@@ -187,6 +187,8 @@
 		131BE05019D06F6D0085EA1B /* MacFrontEnd.mm in Sources */ = {isa = PBXBuildFile; fileRef = 131BE03F19D06F6D0085EA1B /* MacFrontEnd.mm */; };
 		131BE05119D06F6D0085EA1B /* SKKWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 131BE04D19D06F6D0085EA1B /* SKKWrapper.mm */; };
 		131BE05219D06F6D0085EA1B /* SKKWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 131BE04D19D06F6D0085EA1B /* SKKWrapper.mm */; };
+		13A1BA6D19D1C1EC007540AB /* MacCandidateWindow.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13A1BA6C19D1C1EB007540AB /* MacCandidateWindow.mm */; };
+		13A1BA6E19D1C596007540AB /* MacCandidateWindow.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13A1BA6C19D1C1EB007540AB /* MacCandidateWindow.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -384,6 +386,8 @@
 		131BE04C19D06F6D0085EA1B /* SKKWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKKWrapper.h; sourceTree = "<group>"; };
 		131BE04D19D06F6D0085EA1B /* SKKWrapper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SKKWrapper.mm; sourceTree = "<group>"; };
 		131BE04E19D06F6D0085EA1B /* TestResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestResult.h; sourceTree = "<group>"; };
+		13A1BA6B19D1BCA2007540AB /* MacCandidateWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MacCandidateWindow.h; sourceTree = "<group>"; };
+		13A1BA6C19D1C1EB007540AB /* MacCandidateWindow.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MacCandidateWindow.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -744,6 +748,8 @@
 		131BDFA119D06D610085EA1B /* skk */ = {
 			isa = PBXGroup;
 			children = (
+				13A1BA6B19D1BCA2007540AB /* MacCandidateWindow.h */,
+				13A1BA6C19D1C1EB007540AB /* MacCandidateWindow.mm */,
 				131BE03E19D06F6D0085EA1B /* MacFrontEnd.h */,
 				131BE03F19D06F6D0085EA1B /* MacFrontEnd.mm */,
 				131BE04019D06F6D0085EA1B /* MacInputSessionParameter.h */,
@@ -945,6 +951,7 @@
 				131BDF8319D06CB50085EA1B /* SKKOutputBuffer.cpp in Sources */,
 				131BDF8419D06CB50085EA1B /* SKKRecursiveEditor.cpp in Sources */,
 				131BDF6819D06CB50085EA1B /* SKKCompleter.cpp in Sources */,
+				13A1BA6E19D1C596007540AB /* MacCandidateWindow.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -961,6 +968,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				131BDFAE19D06EC50085EA1B /* SKKAnnotator.h in Sources */,
+				13A1BA6D19D1C1EC007540AB /* MacCandidateWindow.mm in Sources */,
 				131BDFAF19D06EC50085EA1B /* SKKCandidateWindow.h in Sources */,
 				131BDFB019D06EC50085EA1B /* SKKClipboard.h in Sources */,
 				131BDFB119D06EC50085EA1B /* SKKConfig.h in Sources */,
