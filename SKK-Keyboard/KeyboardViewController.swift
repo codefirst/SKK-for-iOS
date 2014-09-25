@@ -125,6 +125,11 @@ class KeyboardViewController: UIInputViewController, WrapperParameter {
             case .Enter:
                 session.handle(0x0a, keycode: 0, mods: Int32(mods))
                 mods = 0
+            case .BackSpace:
+                if(!session.handle(0x08, keycode: 0, mods: Int32(mods))) {
+                    (self.textDocumentProxy as UITextDocumentProxy).deleteBackward()
+                }
+                mods = 0
             default:
                 ()
             }
