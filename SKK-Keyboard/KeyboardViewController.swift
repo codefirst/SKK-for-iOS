@@ -123,7 +123,9 @@ class KeyboardViewController: UIInputViewController, WrapperParameter {
             case .Shift:
                 mods = Modifier.Shift.toRaw()
             case .Enter:
-                session.handle(0x0a, keycode: 0, mods: Int32(mods))
+                if(!session.handle(0x0a, keycode: 0, mods: Int32(mods))) {
+                    (self.textDocumentProxy as UITextDocumentProxy).insertText("\n")
+                }
                 mods = 0
             case .BackSpace:
                 if(!session.handle(0x08, keycode: 0, mods: Int32(mods))) {
