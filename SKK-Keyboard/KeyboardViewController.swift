@@ -68,85 +68,34 @@ class KeyboardViewController: ImitationKeyboardViewController, WrapperParameter 
         ]
     ]
     
-    enum Modifier : Int {
-        case Shift = 1, Ctrl = 2, Alt = 4, Meta = 8
-    }
-    
-    var modeButton : UIButton! = nil
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // compose
         compose.text = "welcome to SKK for iOS"
         compose.frame = CGRect(x: 10, y:0 , width: 300, height: 40)
-        view.addSubview(compose)
+        infoView.addSubview(compose)
         
         // candidate
         let screenWidth = UIScreen.mainScreen().bounds.width
         candidateScrollView.frame = CGRect(x: 0, y:0, width: screenWidth, height: 40)
-        
-        // Keyboard layout
-        for (i, cs) in enumerate(Keyboards) {
-            for (j, (c,tag)) in enumerate(cs) {
-                let button  = UIButton.buttonWithType(.System) as UIButton
 
-                button.layer.borderColor = UIColor.blackColor().CGColor
-                button.tag = tag.toRaw()
-                button.addTarget(self, action: "handleKey:", forControlEvents: UIControlEvents.TouchUpInside)
-                button.layer.borderWidth = 0.5
-                button.layer.cornerRadius = 0.5
-                button.setTitle(c as NSString, forState: .Normal)
-                button.frame = CGRect(x: j * 31+5,y: i*43+40,width: 29,height: 41)
-                view.addSubview(button)
-                
-                if(tag == .Mode) {
-                    modeButton = button
-                }
-           }
-        }
-        
         session = SKKWrapper(self)
-    }
-    
-    func handleKey(sender : UIButton!) {
-        switch Keycode.fromRaw(sender.tag) {
-        case .None:
-            ()
-        case .Some(let c):
-            switch c {
-            case .Switch:
-                self.advanceToNextInputMode()
-                mods = 0
-            case .Alphabet:
-                var key : String! = sender.titleForState(.Normal)
-                if(mods & Modifier.Shift.toRaw() != 0) {
-                    key = key.uppercaseString
-                }
-                let n  = (key as NSString).characterAtIndex(0)
-                handle(CChar(n))
-            case .Shift:
-                mods = Modifier.Shift.toRaw()
-            case .Enter:
-                handle(0x0a)
-                mods = 0
-            case .BackSpace:
-                handle(0x08)
-            case .Mode:
-                session.toggleMode()
-                mods = 0
-            default:
-                ()
-            }
-        }
     }
     
     func handle(charcode: CChar){
         let b = session.handle(Int32(charcode), keycode: 0, mods: Int32(mods))
         if(!b) {
             if(charcode != 0x08){
-                let input = (self.textDocumentProxy as UIKeyInput)
-                input.insertText(String.fromCString([charcode])!)
+                let input : UIKeyInput? = (self.textDocumentProxy as UIKeyInput)
+
+                switch input {
+                case .None:
+                    ()
+                case .Some(let p):
+                    p.insertText(String.fromCString([charcode])!)
+                }
+
             }else{
                 (self.textDocumentProxy as UIKeyInput).deleteBackward()
             }
@@ -155,6 +104,7 @@ class KeyboardViewController: ImitationKeyboardViewController, WrapperParameter 
     }
     
     func insertText(text: String!) {
+        NSLog("%@\n", text)
         (self.textDocumentProxy as UITextDocumentProxy).insertText(text)
     }
     
@@ -164,13 +114,14 @@ class KeyboardViewController: ImitationKeyboardViewController, WrapperParameter 
     
     func updateCandidate(xs: NSMutableArray!) {
         compose.removeFromSuperview()
-        view.addSubview(candidateScrollView)
+        candidateScrollView.setContentOffset(CGPointMake(0,0), animated: false)
+        infoView.addSubview(candidateScrollView)
         
         for x in candidateScrollView.subviews {
             x.removeFromSuperview()
         }
         
-        let font = UIFont.systemFontOfSize(24)
+        let font = UIFont.systemFontOfSize(22)
         var pos : CGFloat = 5
         for (i, x) in enumerate(xs) {
             let s = (x as NSString)
@@ -178,23 +129,22 @@ class KeyboardViewController: ImitationKeyboardViewController, WrapperParameter 
             let size = s.sizeWithAttributes([NSFontAttributeName: font])
             button.setTitle(s, forState: .Normal)
             button.titleLabel?.font = font
-            button.tag = i + 0x20
-            button.layer.borderWidth = 0.5
+            button.tag = i + 0x21
             button.frame = CGRect(x: pos, y: 5, width: size.width, height: size.height)
             button.addTarget(self, action: "handleCandidate:", forControlEvents: UIControlEvents.TouchUpInside)
             
             candidateScrollView.addSubview(button)
             
-            pos += size.width + 2
+            pos += size.width + 5
         }
         candidateScrollView.contentSize = CGSize(width: pos, height: 40)
         return;
     }
     
     func handleCandidate(sender : UIButton) {
-        session.handle(Int32(sender.tag), keycode: 0, mods: 9)
+        session.handle(Int32(sender.tag), keycode: 0, mods: 0)
         candidateScrollView.removeFromSuperview()
-        view.addSubview(compose)
+        infoView.addSubview(compose)
     }
     
     func selectInputMode(mode : InputMode) {
@@ -209,10 +159,42 @@ class KeyboardViewController: ImitationKeyboardViewController, WrapperParameter 
         case .Jis0201KanaMode:
             icon = "ｶﾅ"
         case .Jis0208LatinMode:
-            icon = "AA"
+            icon = "英"
         case .NullMode:
             icon = "-"
         }
-        modeButton.setTitle(icon, forState: .Normal)        
+        for (model, key) in self.layout.modelToView {
+            if(model.type == Key.KeyType.InputModeChange) {
+                key.text = icon
+            }
+        }
+    }
+    
+    override func keyPressed(sender: KeyboardKey) {
+        UIDevice.currentDevice().playInputClick()
+        let model : Key? = self.layout.keyForView(sender)
+        switch model?.outputText {
+        case .None:
+            ()
+        case .Some(let text):
+            var t : String = text
+            if(self.shiftState == ShiftState.Disabled) {
+                t = t.lowercaseString
+            }
+            let n  = (t as NSString).characterAtIndex(0)
+            handle(CChar(n))
+        }
+        if self.shiftState == .Enabled {
+            self.shiftState = .Disabled
+        }
+
+    }
+    
+    override func backspacePressed() {
+        handle(0x08)
+    }
+    
+    func inputModeChangeTapped() {
+        session.toggleMode()
     }
 }

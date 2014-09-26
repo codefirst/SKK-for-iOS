@@ -60,6 +60,7 @@ class Key: Hashable {
         case Backspace
         case ModeChange
         case KeyboardChange
+        case InputModeChange
         case Period
         case Space
         case Return
@@ -134,6 +135,10 @@ func defaultKeyboard() -> Keyboard {
     var keyModel3 = Key(.ModeChange)
     keyModel3.keyCap = "123"
     defaultKeyboard.addKey(keyModel3, row: 3, page: 0)
+    
+    var inputModeChangeKey = Key(.InputModeChange)
+    inputModeChangeKey.keyCap = "あ"
+    defaultKeyboard.addKey(inputModeChangeKey, row:3, page: 0)
     
     var keyModel4 = Key(.KeyboardChange)
     keyModel4.keyCap = "🌐"

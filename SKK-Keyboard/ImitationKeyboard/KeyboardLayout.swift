@@ -206,7 +206,8 @@ class KeyboardLayout {
             key.downUnderColor = colors["lightShadowColor"]!
             key.downTextColor = colors["lightTextColor"]!
         case
-        Key.KeyType.ModeChange:
+        Key.KeyType.ModeChange,
+        Key.KeyType.InputModeChange:
             key.color = colors["darkColor"]!
             key.underColor = colors["darkShadowColor"]!
             key.borderColor = colors["borderColor"]!
@@ -569,6 +570,7 @@ class KeyboardLayout {
                     let keyName = "key\(j)x\(i)p\(h)"
                     
                     if keyModel.type == Key.KeyType.ModeChange
+                        || keyModel.type == Key.KeyType.InputModeChange
                         || keyModel.type == Key.KeyType.KeyboardChange
                         || keyModel.type == Key.KeyType.Period {
                             if canonicalSpecialSameWidth == nil {

@@ -64,14 +64,13 @@ class ImitationKeyboardViewController: UIInputViewController {
         self.layout = KeyboardLayout(model: self.keyboard, superview: self.forwardingView)
         self.shiftState = .Disabled
         self.currentMode = 0
-        self.infoView = UIView()
-        self.infoView.backgroundColor = UIColor.redColor()
+        self.infoView = UIView(frame: CGRectZero)
         self.infoView.setTranslatesAutoresizingMaskIntoConstraints(false)
         
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         
-        self.view.addSubview(self.infoView)
         self.view.addSubview(self.forwardingView)
+        self.view.addSubview(self.infoView)
         
         // infoView
         self.view.addConstraint(
@@ -208,6 +207,8 @@ class ImitationKeyboardViewController: UIInputViewController {
                         keyView.addTarget(self, action: Selector("shiftDoubleTapped:"), forControlEvents: .TouchDownRepeat)
                     case Key.KeyType.ModeChange:
                         keyView.addTarget(self, action: Selector("modeChangeTapped"), forControlEvents: .TouchUpInside)
+                    case Key.KeyType.InputModeChange:
+                        keyView.addTarget(self, action: Selector("inputModeChangeTapped"), forControlEvents: .TouchUpInside)
                     default:
                         break
                     }
@@ -270,27 +271,6 @@ class ImitationKeyboardViewController: UIInputViewController {
     var blah = 0
     func keyPressed(sender: KeyboardKey) {
         UIDevice.currentDevice().playInputClick()
-        
-        let model = self.layout.keyForView(sender)
-        
-        NSLog("context before input: \((self.textDocumentProxy as UITextDocumentProxy).documentContextBeforeInput)")
-        NSLog("context after input: \((self.textDocumentProxy as UITextDocumentProxy).documentContextAfterInput)")
-        
-        // TODO: if let chain
-        if model != nil && model!.outputText != nil {
-            if blah < 3 {
-                (self.textDocumentProxy as UITextDocumentProxy as UIKeyInput).insertText(model!.outputText!)
-                blah += 1
-            }
-            else {
-                (self.textDocumentProxy as UITextDocumentProxy as UIKeyInput).deleteBackward()
-                (self.textDocumentProxy as UITextDocumentProxy as UIKeyInput).deleteBackward()
-                (self.textDocumentProxy as UITextDocumentProxy as UIKeyInput).deleteBackward()
-                (self.textDocumentProxy as UITextDocumentProxy as UIKeyInput).insertText("😽")
-                blah = 0
-            }
-        }
-        
         if self.shiftState == .Enabled {
             self.shiftState = .Disabled
         }
@@ -303,12 +283,14 @@ class ImitationKeyboardViewController: UIInputViewController {
         self.backspaceRepeatTimer = nil
     }
     
+    func backspacePressed() {}
+    
     func backspaceDown(sender: KeyboardKey) {
         self.cancelBackspaceTimers()
         
         // first delete
         UIDevice.currentDevice().playInputClick()
-        (self.textDocumentProxy as UITextDocumentProxy as UIKeyInput).deleteBackward()
+        backspacePressed()
         
         // trigger for subsequent deletes
         self.backspaceDelayTimer = NSTimer.scheduledTimerWithTimeInterval(backspaceDelay - backspaceRepeat, target: self, selector: Selector("backspaceDelayCallback"), userInfo: nil, repeats: false)
@@ -324,7 +306,7 @@ class ImitationKeyboardViewController: UIInputViewController {
     }
     
     func backspaceRepeatCallback() {
-        (self.textDocumentProxy as UITextDocumentProxy as UIKeyInput).deleteBackward()
+        backspacePressed()
     }
     
     func shiftDown(sender: KeyboardKey) {
