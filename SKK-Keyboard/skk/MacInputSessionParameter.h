@@ -42,6 +42,8 @@ public:
     virtual SKKCandidateWindow* CandidateWindow() { return candidate_; }
     virtual SKKAnnotator* Annotator() { return &annotator_; }
     virtual SKKDynamicCompletor* DynamicCompletor() { return &completor_; }
+    virtual SKKInputModeListener* Listener(){ return frontend_; }
+    virtual InputMode CurrentMode() const { return frontend_->CurrentMode(); }
 };
 
 #endif

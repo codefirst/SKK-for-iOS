@@ -12,7 +12,7 @@ class KeyboardViewController: UIInputViewController, WrapperParameter {
     enum Keycode : Int {
         case Switch = 1,
         Alphabet,
-        Space,
+        Mode,
         Shift,
         BackSpace,
         Enter
@@ -63,14 +63,16 @@ class KeyboardViewController: UIInputViewController, WrapperParameter {
         ],
         [
             (".", .Switch),
-            (" ", .Alphabet),
-            (" ", .Space)
+            ("あ", .Mode),
+            (" ", .Alphabet)
         ]
     ]
     
     enum Modifier : Int {
         case Shift = 1, Ctrl = 2, Alt = 4, Meta = 8
     }
+    
+    var modeButton : UIButton! = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -97,6 +99,10 @@ class KeyboardViewController: UIInputViewController, WrapperParameter {
                 button.setTitle(c as NSString, forState: .Normal)
                 button.frame = CGRect(x: j * 31+5,y: i*43+40,width: 29,height: 41)
                 view.addSubview(button)
+                
+                if(tag == .Mode) {
+                    modeButton = button
+                }
            }
         }
         
@@ -118,24 +124,34 @@ class KeyboardViewController: UIInputViewController, WrapperParameter {
                     key = key.uppercaseString
                 }
                 let n  = (key as NSString).characterAtIndex(0)
-                session.handle(Int32(n), keycode: 0, mods: Int32(mods))
-                mods = 0
+                handle(CChar(n))
             case .Shift:
                 mods = Modifier.Shift.toRaw()
             case .Enter:
-                if(!session.handle(0x0a, keycode: 0, mods: Int32(mods))) {
-                    (self.textDocumentProxy as UITextDocumentProxy).insertText("\n")
-                }
+                handle(0x0a)
                 mods = 0
             case .BackSpace:
-                if(!session.handle(0x08, keycode: 0, mods: Int32(mods))) {
-                    (self.textDocumentProxy as UITextDocumentProxy).deleteBackward()
-                }
+                handle(0x08)
+            case .Mode:
+                session.toggleMode()
                 mods = 0
             default:
                 ()
             }
         }
+    }
+    
+    func handle(charcode: CChar){
+        let b = session.handle(Int32(charcode), keycode: 0, mods: Int32(mods))
+        if(!b) {
+            if(charcode != 0x08){
+                let input = (self.textDocumentProxy as UIKeyInput)
+                input.insertText(String.fromCString([charcode])!)
+            }else{
+                (self.textDocumentProxy as UIKeyInput).deleteBackward()
+            }
+        }
+        mods = 0
     }
     
     func insertText(text: String!) {
@@ -179,5 +195,24 @@ class KeyboardViewController: UIInputViewController, WrapperParameter {
         session.handle(Int32(sender.tag), keycode: 0, mods: 9)
         candidateScrollView.removeFromSuperview()
         view.addSubview(compose)
+    }
+    
+    func selectInputMode(mode : InputMode) {
+        var icon = ""
+        switch mode {
+        case .HirakanaMode:
+            icon = "あ"
+        case .KatakanaMode:
+            icon = "ア"
+        case .AsciiMode:
+            icon = "A"
+        case .Jis0201KanaMode:
+            icon = "ｶﾅ"
+        case .Jis0208LatinMode:
+            icon = "AA"
+        case .NullMode:
+            icon = "-"
+        }
+        modeButton.setTitle(icon, forState: .Normal)        
     }
 }

@@ -48,9 +48,10 @@
     NSString* k = [[NSBundle mainBundle] pathForResource:@"keymap" ofType: @"conf"];
     [self keymap]->Initialize([k cStringUsingEncoding:NSUTF8StringEncoding]);
     
-    
     param = new MacInputSessionParameter(delegate);
+    
     session = new SKKInputSession([self param]);
+    [self inputSession]->AddInputModeListener([self param]->Listener());
     return self;
 }
 
@@ -59,5 +60,63 @@
     SKKEvent event = [self keymap]->Fetch(charcode, 0, 0);
     return [self inputSession]->HandleEvent(event);
 }
+
+- (void)toggleMode
+{
+    switch([self param]->CurrentMode()) {
+        case InputMode::AsciiMode:
+            [self changeMode: InputMode::HirakanaMode];
+            break;
+        case InputMode::HirakanaMode:
+            [self changeMode: InputMode::KatakanaMode];
+            break;
+        case InputMode::KatakanaMode:
+            [self changeMode: InputMode::Jis0201KanaMode];
+            break;
+        case InputMode::Jis0201KanaMode:
+            [self changeMode: InputMode::Jis0208LatinMode];
+            break;
+        case InputMode::Jis0208LatinMode:
+            [self changeMode: InputMode::AsciiMode];
+            break;
+        case InputMode:: NullMode:
+            [self changeMode: InputMode::AsciiMode];
+            break;
+    }
+}
+
+- (void)changeMode: (InputMode)mode {
+    SKKInputMode m = SKKInputMode::InvalidInputMode;
+    SKKEvent event;
+    switch(mode){
+        case InputMode::AsciiMode:
+            event.id = SKK_ASCII_MODE;
+            m = SKKInputMode::AsciiInputMode;
+            break;
+        case InputMode::HirakanaMode:
+            event.id = SKK_HIRAKANA_MODE;
+            m = SKKInputMode::HirakanaInputMode;
+            break;
+        case InputMode::KatakanaMode:
+            event.id = SKK_KATAKANA_MODE;
+            m = SKKInputMode::KatakanaInputMode;
+            break;
+        case InputMode::Jis0201KanaMode:
+            event.id = SKK_JISX0201KANA_MODE;
+            m = SKKInputMode::Jisx0201KanaInputMode;
+            break;
+        case InputMode::Jis0208LatinMode:
+            event.id = SKK_JISX0208LATIN_MODE;
+            m = SKKInputMode::Jisx0208LatinInputMode;
+            break;
+        case InputMode:: NullMode:
+            event.id = SKK_ASCII_MODE;
+            m = SKKInputMode::InvalidInputMode;
+            break;
+    }
+    [self inputSession]->HandleEvent(event);
+    [self param]->Listener()->SelectInputMode(m);
+}
+
 
 @end

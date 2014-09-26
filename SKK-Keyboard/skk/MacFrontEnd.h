@@ -26,15 +26,12 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #include "SKKFrontEnd.h"
+#include "SKKInputModeListener.h"
 #import "SKKWrapper.h"
 
-class MacFrontEnd : public SKKFrontEnd {
+class MacFrontEnd : public SKKFrontEnd, public SKKInputModeListener {
     id<WrapperParameter> delegate_;
-
-    NSRange notFound() const;
-    NSMutableAttributedString* createMarkedText(const std::string& str, int cursorOffset);
-
-    void workaroundForMicrosoftPowerPoint(NSString* string);
+    InputMode currentMode_;
 
 public:
     MacFrontEnd(id<WrapperParameter> delegate);
@@ -42,7 +39,11 @@ public:
     virtual void InsertString(const std::string& str);
     virtual void ComposeString(const std::string& str, int cursorOffset = 0);
     virtual void ComposeString(const std::string& str, int candidateStart, int candidateLength);
+    virtual void SelectInputMode(SKKInputMode mode);
     virtual std::string SelectedString();
+    virtual void SKKWidgetShow() {}
+    virtual void SKKWidgetHide() {}
+    virtual InputMode CurrentMode() const { return currentMode_; }
 };
 
 #endif

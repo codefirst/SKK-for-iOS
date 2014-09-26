@@ -23,8 +23,9 @@
 #include <iostream>
 #include "MacFrontEnd.h"
 #include "utf8util.h"
+#include "SKKInputMode.h"
 
-MacFrontEnd::MacFrontEnd(id<WrapperParameter> delegate) : delegate_(delegate) {}
+MacFrontEnd::MacFrontEnd(id<WrapperParameter> delegate) : delegate_(delegate), currentMode_(HirakanaMode) {}
 
 void MacFrontEnd::InsertString(const std::string& str) {
     NSString* string = @"";
@@ -46,5 +47,31 @@ void MacFrontEnd::ComposeString(const std::string& str, int candidateStart, int 
 
 std::string MacFrontEnd::SelectedString() {
     return "";
+}
+
+void MacFrontEnd::SelectInputMode(SKKInputMode mode) {
+    InputMode m = NullMode;
+    switch(mode) {
+        case HirakanaInputMode:
+            m = InputMode::HirakanaMode;
+            break;
+        case KatakanaInputMode:
+            m = InputMode::KatakanaMode;
+            break;
+        case Jisx0201KanaInputMode:
+            m = InputMode::Jis0201KanaMode;
+            break;
+        case AsciiInputMode:
+            m = InputMode::AsciiMode;
+            break;
+        case Jisx0208LatinInputMode:
+            m = InputMode::Jis0208LatinMode;
+            break;
+        default:
+            NSLog(@"Unknown mode: %d\n", mode);
+    }
+    [delegate_ selectInputMode: m];
+    currentMode_ = m;
+    
 }
 

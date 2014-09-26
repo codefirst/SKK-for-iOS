@@ -11,6 +11,7 @@
 #include "MockCandidateWindow.h"
 #include "MockAnnotator.h"
 #include "MockDynamicCompletor.h"
+#include "SKKInputMode.h"
 
 class MockInputSessionParameter : public SKKInputSessionParameter {
     MockConfig config_;
@@ -36,6 +37,7 @@ public:
     TestResult& Result() { return *frontend_; }
     void SetSelectedString(const std::string& str) { frontend_->SetSelectedString(str); }
     void SetYankString(const std::string& str) { clipboard_.SetString(str); }
+    SKKInputMode currentMode() { return frontend_->currentMode(); }
 };
 
 #endif
