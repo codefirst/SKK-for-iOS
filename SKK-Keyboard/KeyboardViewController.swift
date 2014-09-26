@@ -155,7 +155,7 @@ class KeyboardViewController: ImitationKeyboardViewController, WrapperParameter 
         case .KatakanaMode:
             icon = "ア"
         case .AsciiMode:
-            icon = "A"
+            icon = "@"
         case .Jis0201KanaMode:
             icon = "ｶﾅ"
         case .Jis0208LatinMode:
