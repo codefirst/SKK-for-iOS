@@ -88,13 +88,8 @@ class KeyboardViewController: ImitationKeyboardViewController, WrapperParameter 
         if(!b) {
             if(charcode != 0x08){
                 let input : UIKeyInput? = (self.textDocumentProxy as UIKeyInput)
-
-                switch input {
-                case .None:
-                    ()
-                case .Some(let p):
-                    p.insertText(String.fromCString([charcode])!)
-                }
+                let str = String(UnicodeScalar(Int(charcode)))
+                input?.insertText(str)
 
             }else{
                 (self.textDocumentProxy as UIKeyInput).deleteBackward()
