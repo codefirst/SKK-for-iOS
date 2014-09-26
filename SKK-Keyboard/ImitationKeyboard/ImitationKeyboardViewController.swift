@@ -8,11 +8,13 @@
 
 import UIKit
 
-class KeyboardViewController: UIInputViewController {
+class ImitationKeyboardViewController: UIInputViewController {
     
     let backspaceDelay: NSTimeInterval = 0.5
     let backspaceRepeat: NSTimeInterval = 0.05
+    let infoViewHeight : CGFloat = 30
     
+    var infoView : UIView
     var keyboard: Keyboard
     var forwardingView: ForwardingView
     var layout: KeyboardLayout
@@ -62,11 +64,54 @@ class KeyboardViewController: UIInputViewController {
         self.layout = KeyboardLayout(model: self.keyboard, superview: self.forwardingView)
         self.shiftState = .Disabled
         self.currentMode = 0
+        self.infoView = UIView()
+        self.infoView.backgroundColor = UIColor.redColor()
+        self.infoView.setTranslatesAutoresizingMaskIntoConstraints(false)
         
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         
+        self.view.addSubview(self.infoView)
         self.view.addSubview(self.forwardingView)
         
+        // infoView
+        self.view.addConstraint(
+            NSLayoutConstraint(
+                item: self.infoView,
+                attribute: NSLayoutAttribute.Left,
+                relatedBy: NSLayoutRelation.Equal,
+                toItem: self.view,
+                attribute: NSLayoutAttribute.Left,
+                multiplier: 1,
+                constant: 0))
+        self.view.addConstraint(
+            NSLayoutConstraint(
+                item: self.infoView,
+                attribute: NSLayoutAttribute.Right,
+                relatedBy: NSLayoutRelation.Equal,
+                toItem: self.view,
+                attribute: NSLayoutAttribute.Right,
+                multiplier: 1,
+                constant: 0))
+        self.view.addConstraint(
+            NSLayoutConstraint(
+                item: self.infoView,
+                attribute: NSLayoutAttribute.Top,
+                relatedBy: NSLayoutRelation.Equal,
+                toItem: self.view,
+                attribute: NSLayoutAttribute.Top,
+                multiplier: 1,
+                constant: 0))
+        self.view.addConstraint(
+            NSLayoutConstraint(
+                item: self.infoView,
+                attribute: NSLayoutAttribute.Bottom,
+                relatedBy: NSLayoutRelation.Equal,
+                toItem: self.view,
+                attribute: NSLayoutAttribute.Top,
+                multiplier: 1,
+                constant: infoViewHeight))
+        
+        // keyboard
         self.view.addConstraint(
             NSLayoutConstraint(
                 item: self.forwardingView,
@@ -93,7 +138,7 @@ class KeyboardViewController: UIInputViewController {
                 toItem: self.view,
                 attribute: NSLayoutAttribute.Top,
                 multiplier: 1,
-                constant: 20))
+                constant: infoViewHeight))
         self.view.addConstraint(
             NSLayoutConstraint(
                 item: self.forwardingView,

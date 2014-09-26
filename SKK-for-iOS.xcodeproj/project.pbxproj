@@ -187,6 +187,17 @@
 		131BE05019D06F6D0085EA1B /* MacFrontEnd.mm in Sources */ = {isa = PBXBuildFile; fileRef = 131BE03F19D06F6D0085EA1B /* MacFrontEnd.mm */; };
 		131BE05119D06F6D0085EA1B /* SKKWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 131BE04D19D06F6D0085EA1B /* SKKWrapper.mm */; };
 		131BE05219D06F6D0085EA1B /* SKKWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 131BE04D19D06F6D0085EA1B /* SKKWrapper.mm */; };
+		13864D4319D5203C00CF4791 /* Catboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13864D3819D5203C00CF4791 /* Catboard.swift */; };
+		13864D4419D5203C00CF4791 /* DirectionEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13864D3919D5203C00CF4791 /* DirectionEnum.swift */; };
+		13864D4519D5203C00CF4791 /* ForwardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13864D3A19D5203C00CF4791 /* ForwardingView.swift */; };
+		13864D4619D5203C00CF4791 /* KeyboardConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13864D3B19D5203C00CF4791 /* KeyboardConnector.swift */; };
+		13864D4719D5203C00CF4791 /* KeyboardKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13864D3C19D5203C00CF4791 /* KeyboardKey.swift */; };
+		13864D4819D5203C00CF4791 /* KeyboardKeyBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13864D3D19D5203C00CF4791 /* KeyboardKeyBackground.swift */; };
+		13864D4919D5203C00CF4791 /* KeyboardLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13864D3E19D5203C00CF4791 /* KeyboardLayout.swift */; };
+		13864D4A19D5203C00CF4791 /* KeyboardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13864D3F19D5203C00CF4791 /* KeyboardModel.swift */; };
+		13864D4B19D5203C00CF4791 /* ImitationKeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13864D4019D5203C00CF4791 /* ImitationKeyboardViewController.swift */; };
+		13864D4C19D5203C00CF4791 /* KeyboardViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13864D4119D5203C00CF4791 /* KeyboardViewProtocol.swift */; };
+		13864D4D19D5203C00CF4791 /* TastyKeyboardProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13864D4219D5203C00CF4791 /* TastyKeyboardProtocol.swift */; };
 		13A1BA6D19D1C1EC007540AB /* MacCandidateWindow.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13A1BA6C19D1C1EB007540AB /* MacCandidateWindow.mm */; };
 		13A1BA6E19D1C596007540AB /* MacCandidateWindow.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13A1BA6C19D1C1EB007540AB /* MacCandidateWindow.mm */; };
 /* End PBXBuildFile section */
@@ -386,6 +397,17 @@
 		131BE04C19D06F6D0085EA1B /* SKKWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKKWrapper.h; sourceTree = "<group>"; };
 		131BE04D19D06F6D0085EA1B /* SKKWrapper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SKKWrapper.mm; sourceTree = "<group>"; };
 		131BE04E19D06F6D0085EA1B /* TestResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestResult.h; sourceTree = "<group>"; };
+		13864D3819D5203C00CF4791 /* Catboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Catboard.swift; sourceTree = "<group>"; };
+		13864D3919D5203C00CF4791 /* DirectionEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectionEnum.swift; sourceTree = "<group>"; };
+		13864D3A19D5203C00CF4791 /* ForwardingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForwardingView.swift; sourceTree = "<group>"; };
+		13864D3B19D5203C00CF4791 /* KeyboardConnector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardConnector.swift; sourceTree = "<group>"; };
+		13864D3C19D5203C00CF4791 /* KeyboardKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardKey.swift; sourceTree = "<group>"; };
+		13864D3D19D5203C00CF4791 /* KeyboardKeyBackground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardKeyBackground.swift; sourceTree = "<group>"; };
+		13864D3E19D5203C00CF4791 /* KeyboardLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardLayout.swift; sourceTree = "<group>"; };
+		13864D3F19D5203C00CF4791 /* KeyboardModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardModel.swift; sourceTree = "<group>"; };
+		13864D4019D5203C00CF4791 /* ImitationKeyboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImitationKeyboardViewController.swift; sourceTree = "<group>"; };
+		13864D4119D5203C00CF4791 /* KeyboardViewProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardViewProtocol.swift; sourceTree = "<group>"; };
+		13864D4219D5203C00CF4791 /* TastyKeyboardProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TastyKeyboardProtocol.swift; sourceTree = "<group>"; };
 		13A1BA6B19D1BCA2007540AB /* MacCandidateWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MacCandidateWindow.h; sourceTree = "<group>"; };
 		13A1BA6C19D1C1EB007540AB /* MacCandidateWindow.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MacCandidateWindow.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -478,6 +500,7 @@
 		131BDECA19D06B8A0085EA1B /* SKK-Keyboard */ = {
 			isa = PBXGroup;
 			children = (
+				13864D3719D5203C00CF4791 /* ImitationKeyboard */,
 				131BDFA119D06D610085EA1B /* skk */,
 				131BDECD19D06B8A0085EA1B /* KeyboardViewController.swift */,
 				131BDECB19D06B8A0085EA1B /* Supporting Files */,
@@ -771,6 +794,24 @@
 			path = skk;
 			sourceTree = "<group>";
 		};
+		13864D3719D5203C00CF4791 /* ImitationKeyboard */ = {
+			isa = PBXGroup;
+			children = (
+				13864D3819D5203C00CF4791 /* Catboard.swift */,
+				13864D3919D5203C00CF4791 /* DirectionEnum.swift */,
+				13864D3A19D5203C00CF4791 /* ForwardingView.swift */,
+				13864D3B19D5203C00CF4791 /* KeyboardConnector.swift */,
+				13864D3C19D5203C00CF4791 /* KeyboardKey.swift */,
+				13864D3D19D5203C00CF4791 /* KeyboardKeyBackground.swift */,
+				13864D3E19D5203C00CF4791 /* KeyboardLayout.swift */,
+				13864D3F19D5203C00CF4791 /* KeyboardModel.swift */,
+				13864D4019D5203C00CF4791 /* ImitationKeyboardViewController.swift */,
+				13864D4119D5203C00CF4791 /* KeyboardViewProtocol.swift */,
+				13864D4219D5203C00CF4791 /* TastyKeyboardProtocol.swift */,
+			);
+			path = ImitationKeyboard;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -976,11 +1017,13 @@
 				131BDFB319D06EC50085EA1B /* SKKFrontEnd.h in Sources */,
 				131BDFB419D06EC50085EA1B /* SKKInputModeListener.h in Sources */,
 				131BDFB519D06EC50085EA1B /* SKKInputSessionParameter.h in Sources */,
+				13864D4319D5203C00CF4791 /* Catboard.swift in Sources */,
 				131BDFB619D06EC50085EA1B /* SKKMessenger.h in Sources */,
 				131BDFB719D06EC50085EA1B /* SKKWidget.h in Sources */,
 				131BDFB819D06EC50085EA1B /* SKKBackEnd.cpp in Sources */,
 				131BDFB919D06EC50085EA1B /* SKKBackEnd.h in Sources */,
 				131BDFBA19D06EC50085EA1B /* SKKCandidateFilter.h in Sources */,
+				13864D4B19D5203C00CF4791 /* ImitationKeyboardViewController.swift in Sources */,
 				131BDFBB19D06EC50085EA1B /* SKKDictionaryCache.cpp in Sources */,
 				131BDFBC19D06EC50085EA1B /* SKKDictionaryCache.h in Sources */,
 				131BDFBD19D06EC50085EA1B /* SKKDictionaryFactory.cpp in Sources */,
@@ -993,6 +1036,7 @@
 				131BDFC419D06EC50085EA1B /* SKKAutoUpdateDictionary.h in Sources */,
 				131BDFC519D06EC50085EA1B /* SKKBaseDictionary.h in Sources */,
 				131BDFC619D06EC50085EA1B /* SKKCommonDictionary.h in Sources */,
+				13864D4819D5203C00CF4791 /* KeyboardKeyBackground.swift in Sources */,
 				131BDFC719D06EC50085EA1B /* SKKCompletionHelper.h in Sources */,
 				131BDFC819D06EC50085EA1B /* SKKDictionaryFile.cpp in Sources */,
 				131BDFC919D06EC50085EA1B /* SKKDictionaryFile.h in Sources */,
@@ -1000,9 +1044,11 @@
 				131BDFCB19D06EC50085EA1B /* SKKDictionaryKeeper.h in Sources */,
 				131BDFCC19D06EC50085EA1B /* SKKDictionaryLoader.h in Sources */,
 				131BDFCD19D06EC50085EA1B /* SKKDictionaryTemplate.h in Sources */,
+				13864D4A19D5203C00CF4791 /* KeyboardModel.swift in Sources */,
 				131BDFCE19D06EC50085EA1B /* SKKDistributedUserDictionary.cpp in Sources */,
 				131BDFCF19D06EC50085EA1B /* SKKDistributedUserDictionary.h in Sources */,
 				131BDFD019D06EC50085EA1B /* SKKGadgetDictionary.cpp in Sources */,
+				13864D4919D5203C00CF4791 /* KeyboardLayout.swift in Sources */,
 				131BDFD119D06EC50085EA1B /* SKKGadgetDictionary.h in Sources */,
 				131BDFD219D06EC50085EA1B /* SKKHttpDictionaryLoader.cpp in Sources */,
 				131BDFD319D06EC50085EA1B /* SKKHttpDictionaryLoader.h in Sources */,
@@ -1028,8 +1074,11 @@
 				131BDFE719D06EC50085EA1B /* SKKPrimaryEditor.cpp in Sources */,
 				131BDFE819D06EC50085EA1B /* SKKPrimaryEditor.h in Sources */,
 				131BE05019D06F6D0085EA1B /* MacFrontEnd.mm in Sources */,
+				13864D4C19D5203C00CF4791 /* KeyboardViewProtocol.swift in Sources */,
+				13864D4419D5203C00CF4791 /* DirectionEnum.swift in Sources */,
 				131BDFE919D06EC50085EA1B /* SKKRegisterEditor.cpp in Sources */,
 				131BDFEA19D06EC50085EA1B /* SKKRegisterEditor.h in Sources */,
+				13864D4D19D5203C00CF4791 /* TastyKeyboardProtocol.swift in Sources */,
 				131BDFEB19D06EC50085EA1B /* SKKTextBuffer.cpp in Sources */,
 				131BDFEC19D06EC50085EA1B /* SKKTextBuffer.h in Sources */,
 				131BDFED19D06EC50085EA1B /* SKKCandidate.cpp in Sources */,
@@ -1042,6 +1091,7 @@
 				131BDFF319D06EC50085EA1B /* SKKOkuriHint.h in Sources */,
 				131BDFF419D06EC50085EA1B /* SKKKeymap.cpp in Sources */,
 				131BDFF519D06EC50085EA1B /* SKKKeymap.h in Sources */,
+				13864D4519D5203C00CF4791 /* ForwardingView.swift in Sources */,
 				131BDFF619D06EC50085EA1B /* SKKKeymapEntry.cpp in Sources */,
 				131BDFF719D06EC50085EA1B /* SKKKeymapEntry.h in Sources */,
 				131BDFF819D06EC50085EA1B /* SKKKeyState.h in Sources */,
@@ -1077,10 +1127,12 @@
 				131BE01619D06EC60085EA1B /* SKKStateEntryRemove-inl.h in Sources */,
 				131BE01719D06EC60085EA1B /* SKKStateMachine.h in Sources */,
 				131BE01819D06EC60085EA1B /* SKKStatePrimary-inl.h in Sources */,
+				13864D4619D5203C00CF4791 /* KeyboardConnector.swift in Sources */,
 				131BE01919D06EC60085EA1B /* SKKStateRecursiveRegister-inl.h in Sources */,
 				131BE01A19D06EC60085EA1B /* SKKRomanKanaConverter.cpp in Sources */,
 				131BE01B19D06EC60085EA1B /* SKKRomanKanaConverter.h in Sources */,
 				131BE01C19D06EC60085EA1B /* SKKTrie.cpp in Sources */,
+				13864D4719D5203C00CF4791 /* KeyboardKey.swift in Sources */,
 				131BE01D19D06EC60085EA1B /* SKKTrie.h in Sources */,
 				131BE01E19D06EC60085EA1B /* calculator.h in Sources */,
 				131BE01F19D06EC60085EA1B /* jconv.cpp in Sources */,

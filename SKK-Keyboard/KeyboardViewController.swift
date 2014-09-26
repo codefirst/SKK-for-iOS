@@ -8,7 +8,7 @@
 
 import UIKit
 
-class KeyboardViewController: UIInputViewController, WrapperParameter {
+class KeyboardViewController: ImitationKeyboardViewController, WrapperParameter {
     enum Keycode : Int {
         case Switch = 1,
         Alphabet,
