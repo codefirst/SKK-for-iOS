@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
-	<string>SKK-Keyboard</string>
+	<string>SKK Keyboard</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -31,7 +31,7 @@
 			<key>PrefersRightToLeft</key>
 			<false/>
 			<key>PrimaryLanguage</key>
-			<string>en-US</string>
+			<string>ja-JP</string>
 			<key>RequestsOpenAccess</key>
 			<false/>
 		</dict>
