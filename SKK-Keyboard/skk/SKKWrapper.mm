@@ -13,6 +13,8 @@
 #include "SKKBackEnd.h"
 #include "MacInputSessionParameter.h"
 #import "SKKWrapper.h"
+#include "SKKDictionaryFactory.h"
+#include "SKKCommonDictionary.h"
 
 @implementation SKKWrapper
 
@@ -33,11 +35,23 @@
 
 - (id)init:(id<WrapperParameter>) delegate
 {
+    // initialize Dict
+    SKKRegisterFactoryMethod<SKKCommonDictionaryUTF8>(0);
+    
+    // register default dict
     SKKDictionaryKeyContainer keys;
-    
     NSString* dict = [[NSBundle mainBundle] pathForResource:@"skk" ofType:@"jisyo"];
-    std::string userdict([dict cStringUsingEncoding: NSUTF8StringEncoding]);
+    keys.push_back(std::pair<int,std::string>(0, [dict cStringUsingEncoding:NSUTF8StringEncoding]));
+
+    // create user dict(if need)
+    NSString* userDict = [NSHomeDirectory() stringByAppendingPathComponent:@"Library/skk.jisyo"];
+    if(![[NSFileManager defaultManager] fileExistsAtPath: userDict]){
+        [[NSFileManager defaultManager] createFileAtPath:userDict contents:nil attributes:nil];
+    }
+    NSLog(@"%@\n", userDict);
     
+    // initialize backend
+    std::string userdict([userDict cStringUsingEncoding: NSUTF8StringEncoding]);
     SKKBackEnd::theInstance().Initialize(userdict, keys);
     
     NSString* rule = [[NSBundle mainBundle] pathForResource:@"kana-rule" ofType:@"conf"];

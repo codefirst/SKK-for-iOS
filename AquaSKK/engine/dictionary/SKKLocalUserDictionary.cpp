@@ -178,7 +178,7 @@ void SKKLocalUserDictionary::Register(const SKKEntry& entry, const SKKCandidate&
         update(entry.EntryString(), tmp, file_.OkuriNasi());
     }
 
-    save();
+    save(true);
 }
 
 void SKKLocalUserDictionary::Remove(const SKKEntry& entry, const SKKCandidate& candidate) {
