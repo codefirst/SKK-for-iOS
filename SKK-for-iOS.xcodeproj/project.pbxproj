@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		130E97C919D7E1EE00ADC5CB /* CandidateDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130E97C819D7E1EE00ADC5CB /* CandidateDataSource.swift */; };
 		131BDE9319D06B4A0085EA1B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131BDE9219D06B4A0085EA1B /* AppDelegate.swift */; };
 		131BDE9519D06B4A0085EA1B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131BDE9419D06B4A0085EA1B /* ViewController.swift */; };
 		131BDE9819D06B4A0085EA1B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 131BDE9619D06B4A0085EA1B /* Main.storyboard */; };
@@ -241,6 +242,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		130E97C819D7E1EE00ADC5CB /* CandidateDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CandidateDataSource.swift; sourceTree = "<group>"; };
 		131BDE8D19D06B4A0085EA1B /* SKK-for-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SKK-for-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		131BDE9119D06B4A0085EA1B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		131BDE9219D06B4A0085EA1B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -504,6 +506,7 @@
 				131BDFA119D06D610085EA1B /* skk */,
 				131BDECD19D06B8A0085EA1B /* KeyboardViewController.swift */,
 				131BDECB19D06B8A0085EA1B /* Supporting Files */,
+				130E97C819D7E1EE00ADC5CB /* CandidateDataSource.swift */,
 			);
 			path = "SKK-Keyboard";
 			sourceTree = "<group>";
@@ -1092,6 +1095,7 @@
 				131BDFF219D06EC50085EA1B /* SKKEntry.h in Sources */,
 				131BDFF319D06EC50085EA1B /* SKKOkuriHint.h in Sources */,
 				131BDFF419D06EC50085EA1B /* SKKKeymap.cpp in Sources */,
+				130E97C919D7E1EE00ADC5CB /* CandidateDataSource.swift in Sources */,
 				131BDFF519D06EC50085EA1B /* SKKKeymap.h in Sources */,
 				13864D4519D5203C00CF4791 /* ForwardingView.swift in Sources */,
 				131BDFF619D06EC50085EA1B /* SKKKeymapEntry.cpp in Sources */,

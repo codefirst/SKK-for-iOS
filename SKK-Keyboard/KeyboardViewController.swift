@@ -8,94 +8,45 @@
 
 import UIKit
 
-class KeyboardViewController: ImitationKeyboardViewController, WrapperParameter {
-    enum Keycode : Int {
-        case Switch = 1,
-        Alphabet,
-        Mode,
-        Shift,
-        BackSpace,
-        Enter
-    }
-    
+class KeyboardViewController: ImitationKeyboardViewController, WrapperParameter, SelectCandidate {
     var session : SKKWrapper = SKKWrapper()
     
     let compose : UILabel = UILabel()
     
-    let candidateScrollView : UIScrollView = UIScrollView()
-    
-    var mods : Int = 0
-    
-    let Keyboards : [[(String, Keycode)]] = [[
-            ("q",.Alphabet),
-            ("w",.Alphabet),
-            ("e",.Alphabet),
-            ("r",.Alphabet),
-            ("t",.Alphabet),
-            ("y",.Alphabet),
-            ("u",.Alphabet),
-            ("i",.Alphabet),
-            ("o",.Alphabet),
-            ("p",.Alphabet)
-        ],
-        [
-            ("a", .Alphabet),
-            ("s", .Alphabet),
-            ("d", .Alphabet),
-            ("f", .Alphabet),
-            ("g", .Alphabet),
-            ("h", .Alphabet),
-            ("j", .Alphabet),
-            ("k", .Alphabet),
-            ("l", .Alphabet),
-            ("v", .Enter)
-        ],
-        [
-            ("^", .Shift),
-            ("z", .Alphabet),
-            ("x", .Alphabet),
-            ("c", .Alphabet),
-            ("v", .Alphabet),
-            ("b", .Alphabet),
-            ("n", .Alphabet),
-            ("m", .Alphabet),
-            ("<", .BackSpace)
-        ],
-        [
-            (".", .Switch),
-            ("あ", .Mode),
-            (" ", .Alphabet)
-        ]
-    ]
+    var candidateView : UITableView? = nil
+    var dataSource : CandidateDataSource? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // compose
+        let width = UIScreen.mainScreen().bounds.width
         compose.text = "welcome to SKK for iOS"
-        compose.frame = CGRect(x: 10, y:0 , width: 300, height: 40)
+        compose.font = UIFont.systemFontOfSize(18)
+        compose.frame = CGRect(x: 10, y:0 , width: width, height: 40)
         infoView.addSubview(compose)
         
         // candidate
-        let screenWidth = UIScreen.mainScreen().bounds.width
-        candidateScrollView.frame = CGRect(x: 0, y:0, width: screenWidth, height: 40)
-
+        // TODO: Use auto layout
+        candidateView = UITableView(frame: CGRect(x: 0, y:40, width:width, height:UIScreen.mainScreen().bounds.width - 40), style: .Plain)
+        dataSource = CandidateDataSource(delegate: self)
+        candidateView?.dataSource = dataSource
+        candidateView?.delegate = dataSource
+        
         session = SKKWrapper(self)
     }
     
     func handle(charcode: CChar){
-        let b = session.handle(Int32(charcode), keycode: 0, mods: Int32(mods))
+        let b = session.handle(Int32(charcode), keycode: 0, mods: 0)
         if(!b) {
             if(charcode != 0x08){
                 let input : UIKeyInput? = (self.textDocumentProxy as UIKeyInput)
                 let str = String(UnicodeScalar(Int(charcode)))
                 input?.insertText(str)
-
             }else{
                 (self.textDocumentProxy as UIKeyInput).deleteBackward()
             }
         }
-        mods = 0
     }
     
     func insertText(text: String!) {
@@ -104,42 +55,27 @@ class KeyboardViewController: ImitationKeyboardViewController, WrapperParameter 
     }
     
     func composeText(text: String!) {
+        NSLog("compose text %@\n", text)
         compose.text = text
     }
     
-    func updateCandidate(xs: NSMutableArray!) {
-        compose.removeFromSuperview()
-        candidateScrollView.setContentOffset(CGPointMake(0,0), animated: false)
-        infoView.addSubview(candidateScrollView)
-        
-        for x in candidateScrollView.subviews {
-            x.removeFromSuperview()
+    func updateCandidate(xs: NSMutableArray) {
+        if(xs.count <= 1 ) { return }
+        var ys : [String] = [String]()
+
+        for x in xs {
+            ys.append((x as NSString) as String)
         }
-        
-        let font = UIFont.systemFontOfSize(22)
-        var pos : CGFloat = 5
-        for (i, x) in enumerate(xs) {
-            let s = (x as NSString)
-            let button  = UIButton.buttonWithType(.System) as UIButton
-            let size = s.sizeWithAttributes([NSFontAttributeName: font])
-            button.setTitle(s, forState: .Normal)
-            button.titleLabel?.font = font
-            button.tag = i + 0x21
-            button.frame = CGRect(x: pos, y: 5, width: size.width, height: size.height)
-            button.addTarget(self, action: "handleCandidate:", forControlEvents: UIControlEvents.TouchUpInside)
-            
-            candidateScrollView.addSubview(button)
-            
-            pos += size.width + 5
-        }
-        candidateScrollView.contentSize = CGSize(width: pos, height: 40)
-        return;
+        self.view.addSubview(candidateView!)
+        self.forwardingView.hidden = true
+        dataSource?.update(ys)
+        candidateView?.reloadData()
     }
     
-    func handleCandidate(sender : UIButton) {
-        session.handle(Int32(sender.tag), keycode: 0, mods: 0)
-        candidateScrollView.removeFromSuperview()
-        infoView.addSubview(compose)
+    func selectCandidate(n : Int){
+        session.handle(Int32(n + 0x21), keycode: 0, mods: 0)
+        self.candidateView?.removeFromSuperview()
+        self.forwardingView.hidden = false
     }
     
     func selectInputMode(mode : InputMode) {
@@ -182,7 +118,6 @@ class KeyboardViewController: ImitationKeyboardViewController, WrapperParameter 
         if self.shiftState == .Enabled {
             self.shiftState = .Disabled
         }
-
     }
     
     override func backspacePressed() {
