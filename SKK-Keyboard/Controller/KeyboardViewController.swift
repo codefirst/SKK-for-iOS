@@ -8,7 +8,7 @@
 
 import UIKit
 
-class KeyboardViewController: ImitationKeyboardViewController, WrapperParameter, SelectCandidate {
+class KeyboardViewController: ImitationKeyboardViewController, WrapperParameter, UITableViewDelegate {
     var session : SKKWrapper = SKKWrapper()
     
     let compose : UILabel = UILabel()
@@ -29,9 +29,8 @@ class KeyboardViewController: ImitationKeyboardViewController, WrapperParameter,
         // candidate
         // TODO: Use auto layout
         candidateView = UITableView(frame: CGRect(x: 0, y:40, width:width, height:UIScreen.mainScreen().bounds.width - 40), style: .Plain)
-        dataSource = CandidateDataSource(delegate: self)
         candidateView?.dataSource = dataSource
-        candidateView?.delegate = dataSource
+        candidateView?.delegate = self
         
         session = SKKWrapper(self)
     }
@@ -72,12 +71,12 @@ class KeyboardViewController: ImitationKeyboardViewController, WrapperParameter,
         candidateView?.reloadData()
     }
     
-    func selectCandidate(n : Int){
-        session.handle(Int32(n + 0x21), keycode: 0, mods: 0)
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        self.session.handle(Int32(indexPath.row + 0x21), keycode: 0, mods: 0)
         self.candidateView?.removeFromSuperview()
         self.forwardingView.hidden = false
     }
-    
+
     func selectInputMode(mode : InputMode) {
         var icon = ""
         switch mode {

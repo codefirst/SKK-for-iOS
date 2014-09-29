@@ -8,20 +8,8 @@
 
 import Foundation
 
-protocol SelectCandidate {
-    func selectCandidate(n : Int)
-}
-
-class CandidateDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
-
+class CandidateDataSource: NSObject, UITableViewDataSource {
     var candidates : [String] = []
-    var delegate : SelectCandidate? = nil
-    
-    init(delegate : SelectCandidate) {
-        self.delegate = delegate
-    }
-    
-    override init(){}
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let index = indexPath.row
@@ -49,9 +37,4 @@ class CandidateDataSource: NSObject, UITableViewDataSource, UITableViewDelegate 
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 24
     }
-    
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        delegate?.selectCandidate(indexPath.row)
-    }
-    
 }
