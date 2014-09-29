@@ -1,10 +1,23 @@
 # SKK for iOS
+*現在、開発中であり、AppStore等での配布は行なっていません。* 進捗状況は[#4](https://github.com/codefirst/SKK-for-iOS/issues/4)をご覧ください。
 
 ## Overview
-iOS向けSKKの開発レポジトリです。
+![](https://camo.githubusercontent.com/6aab3c2ca2209da2d981429f7e92b3d46ec14a6f/68747470733a2f2f646c2e64726f70626f7875736572636f6e74656e742e636f6d2f752f39393131343738302f61303130396239612d303036372d343539642d623432362d3866313565366663616433325f6669726573745f6c32353764376272617169736762316c6678695f3430302e676966)
 
-現時点では最低限必要な機能の実装もおわっていません。進捗状況は [#2](https://github.com/codefirst/SKK-for-iOS/issues/2) を参照ください。
+iOS向けSKKです。 [AquaSKK](http://aquaskk.sourceforge.jp/) のコードを流用しています。
+
+## 動作条件
+
+ * iOS8 以降
+
+## 主な機能
+
+ * 単文節変換
+ * 入力モード切り替え(ひらがな、カタカナ、半角カナ、全角英数、ASCII)
+ * 入力中の辞書登録
 
 ## License
-TBD
+Copyright (C) 2014 codefirst
+Licensed under the [GPL 2.0](http://www.opensource.jp/gpl/gpl.ja.html)
+
 
