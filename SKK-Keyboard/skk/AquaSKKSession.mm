@@ -12,11 +12,11 @@
 #include "SKKRomanKanaConverter.h"
 #include "SKKBackEnd.h"
 #include "MacInputSessionParameter.h"
-#import "SKKWrapper.h"
 #include "SKKDictionaryFactory.h"
 #include "SKKCommonDictionary.h"
+#import "AquaSKKSession.h"
 
-@implementation SKKWrapper
+@implementation AquaSKKSession
 
 - (SKKInputSession*)inputSession
 {
@@ -33,7 +33,7 @@
     return (MacInputSessionParameter*)param;
 }
 
-- (id)init:(id<WrapperParameter>) delegate
+- (id)init
 {
     // initialize Dict
     SKKRegisterFactoryMethod<SKKCommonDictionaryUTF8>(0);
@@ -61,12 +61,13 @@
     
     NSString* k = [[NSBundle mainBundle] pathForResource:@"keymap" ofType: @"conf"];
     [self keymap]->Initialize([k cStringUsingEncoding:NSUTF8StringEncoding]);
-    
+    return self;
+}
+
+- (void)setDelegate:(id<AquaSKKSessionDelegate>) delegate {
     param = new MacInputSessionParameter(delegate);
-    
     session = new SKKInputSession([self param]);
     [self inputSession]->AddInputModeListener([self param]->Listener());
-    return self;
 }
 
 - (bool)handle: (int)charcode keycode:(int)keycode mods:(int)mods

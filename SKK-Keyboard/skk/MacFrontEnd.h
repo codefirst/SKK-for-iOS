@@ -27,14 +27,14 @@
 #import <UIKit/UIKit.h>
 #include "SKKFrontEnd.h"
 #include "SKKInputModeListener.h"
-#import "SKKWrapper.h"
+#import "AquaSKKSession.h"
 
 class MacFrontEnd : public SKKFrontEnd, public SKKInputModeListener {
-    id<WrapperParameter> delegate_;
+    id<AquaSKKSessionDelegate> delegate_;
     InputMode currentMode_;
 
 public:
-    MacFrontEnd(id<WrapperParameter> delegate);
+    MacFrontEnd(id<AquaSKKSessionDelegate> delegate);
 
     virtual void InsertString(const std::string& str);
     virtual void ComposeString(const std::string& str, int cursorOffset = 0);

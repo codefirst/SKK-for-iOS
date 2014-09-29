@@ -25,7 +25,7 @@
 #include "utf8util.h"
 #include "SKKInputMode.h"
 
-MacFrontEnd::MacFrontEnd(id<WrapperParameter> delegate) : delegate_(delegate), currentMode_(HirakanaMode) {}
+MacFrontEnd::MacFrontEnd(id<AquaSKKSessionDelegate> delegate) : delegate_(delegate), currentMode_(HirakanaMode) {}
 
 void MacFrontEnd::InsertString(const std::string& str) {
     NSString* string = @"";

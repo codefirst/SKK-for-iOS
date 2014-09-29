@@ -6,8 +6,8 @@
 //
 //
 
-#ifndef SKK_SKKWrapper_h
-#define SKK_SKKWrapper_h
+#ifndef AquaSKKSession_h
+#define AquaSKKSession_h
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
@@ -22,23 +22,25 @@ typedef NS_ENUM(NSInteger, InputMode) {
 };
 
 
-@protocol WrapperParameter<NSObject>
+@protocol AquaSKKSessionDelegate<NSObject>
 - (void)insertText: (NSString*)text;
 - (void)composeText: (NSString*)text;
 - (void)updateCandidate: (NSMutableArray*)xs;
 - (void)selectInputMode: (InputMode)mode;
 @end
 
-@interface SKKWrapper : NSObject {
+@interface AquaSKKSession : NSObject {
     void* map;
     void* param;
     void* session;
     int currentMode;
 }
 
-- (id)init: (id<WrapperParameter>)delegate;
+- (id)init;
+- (void)setDelegate: (id<AquaSKKSessionDelegate>)delegate;
 - (bool)handle: (int)charcode keycode:(int)keycode mods:(int)mods;
 - (void)toggleMode;
+- (void)changeMode: (InputMode)mode;
 @end
 
 #endif

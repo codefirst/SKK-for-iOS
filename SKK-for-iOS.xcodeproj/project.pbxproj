@@ -184,8 +184,8 @@
 		131BE02819D06EC60085EA1B /* utf8util.h in Sources */ = {isa = PBXBuildFile; fileRef = 131BDF6319D06CB50085EA1B /* utf8util.h */; };
 		131BE04F19D06F6D0085EA1B /* MacFrontEnd.mm in Sources */ = {isa = PBXBuildFile; fileRef = 131BE03F19D06F6D0085EA1B /* MacFrontEnd.mm */; };
 		131BE05019D06F6D0085EA1B /* MacFrontEnd.mm in Sources */ = {isa = PBXBuildFile; fileRef = 131BE03F19D06F6D0085EA1B /* MacFrontEnd.mm */; };
-		131BE05119D06F6D0085EA1B /* SKKWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 131BE04D19D06F6D0085EA1B /* SKKWrapper.mm */; };
-		131BE05219D06F6D0085EA1B /* SKKWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 131BE04D19D06F6D0085EA1B /* SKKWrapper.mm */; };
+		131BE05119D06F6D0085EA1B /* AquaSKKSession.mm in Sources */ = {isa = PBXBuildFile; fileRef = 131BE04D19D06F6D0085EA1B /* AquaSKKSession.mm */; };
+		131BE05219D06F6D0085EA1B /* AquaSKKSession.mm in Sources */ = {isa = PBXBuildFile; fileRef = 131BE04D19D06F6D0085EA1B /* AquaSKKSession.mm */; };
 		13864D4319D5203C00CF4791 /* Catboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13864D3819D5203C00CF4791 /* Catboard.swift */; };
 		13864D4419D5203C00CF4791 /* DirectionEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13864D3919D5203C00CF4791 /* DirectionEnum.swift */; };
 		13864D4519D5203C00CF4791 /* ForwardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13864D3A19D5203C00CF4791 /* ForwardingView.swift */; };
@@ -394,8 +394,8 @@
 		131BE04919D06F6D0085EA1B /* MockMessenger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockMessenger.h; sourceTree = "<group>"; };
 		131BE04A19D06F6D0085EA1B /* MockRegistrationObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockRegistrationObserver.h; sourceTree = "<group>"; };
 		131BE04B19D06F6D0085EA1B /* SKK-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SKK-Bridging-Header.h"; sourceTree = "<group>"; };
-		131BE04C19D06F6D0085EA1B /* SKKWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKKWrapper.h; sourceTree = "<group>"; };
-		131BE04D19D06F6D0085EA1B /* SKKWrapper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SKKWrapper.mm; sourceTree = "<group>"; };
+		131BE04C19D06F6D0085EA1B /* AquaSKKSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AquaSKKSession.h; sourceTree = "<group>"; };
+		131BE04D19D06F6D0085EA1B /* AquaSKKSession.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AquaSKKSession.mm; sourceTree = "<group>"; };
 		131BE04E19D06F6D0085EA1B /* TestResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestResult.h; sourceTree = "<group>"; };
 		13864D3819D5203C00CF4791 /* Catboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Catboard.swift; sourceTree = "<group>"; };
 		13864D3919D5203C00CF4791 /* DirectionEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectionEnum.swift; sourceTree = "<group>"; };
@@ -773,6 +773,9 @@
 		131BDFA119D06D610085EA1B /* AquaSKK */ = {
 			isa = PBXGroup;
 			children = (
+				131BE04B19D06F6D0085EA1B /* SKK-Bridging-Header.h */,
+				131BE04C19D06F6D0085EA1B /* AquaSKKSession.h */,
+				131BE04D19D06F6D0085EA1B /* AquaSKKSession.mm */,
 				13A1BA6B19D1BCA2007540AB /* MacCandidateWindow.h */,
 				13A1BA6C19D1C1EB007540AB /* MacCandidateWindow.mm */,
 				131BE03E19D06F6D0085EA1B /* MacFrontEnd.h */,
@@ -788,9 +791,6 @@
 				131BE04819D06F6D0085EA1B /* MockInputSessionParameter.h */,
 				131BE04919D06F6D0085EA1B /* MockMessenger.h */,
 				131BE04A19D06F6D0085EA1B /* MockRegistrationObserver.h */,
-				131BE04B19D06F6D0085EA1B /* SKK-Bridging-Header.h */,
-				131BE04C19D06F6D0085EA1B /* SKKWrapper.h */,
-				131BE04D19D06F6D0085EA1B /* SKKWrapper.mm */,
 				131BE04E19D06F6D0085EA1B /* TestResult.h */,
 			);
 			name = AquaSKK;
@@ -970,7 +970,7 @@
 				131BDF8019D06CB50085EA1B /* SKKInputEnvironment.cpp in Sources */,
 				131BDF6D19D06CB50085EA1B /* SKKHttpDictionaryLoader.cpp in Sources */,
 				131BDE9519D06B4A0085EA1B /* ViewController.swift in Sources */,
-				131BE05119D06F6D0085EA1B /* SKKWrapper.mm in Sources */,
+				131BE05119D06F6D0085EA1B /* AquaSKKSession.mm in Sources */,
 				131BDF6619D06CB50085EA1B /* SKKDictionaryFactory.cpp in Sources */,
 				131BDF8819D06CB50085EA1B /* SKKRomanKanaConverter.cpp in Sources */,
 				131BDF8219D06CB50085EA1B /* SKKInputSession.cpp in Sources */,
@@ -1098,7 +1098,7 @@
 				13BFC11F19D93434000B0412 /* KeyboardViewController.swift in Sources */,
 				131BDFEC19D06EC50085EA1B /* SKKTextBuffer.h in Sources */,
 				131BDFED19D06EC50085EA1B /* SKKCandidate.cpp in Sources */,
-				131BE05219D06F6D0085EA1B /* SKKWrapper.mm in Sources */,
+				131BE05219D06F6D0085EA1B /* AquaSKKSession.mm in Sources */,
 				131BDFEE19D06EC50085EA1B /* SKKCandidate.h in Sources */,
 				131BDFEF19D06EC50085EA1B /* SKKCandidateParser.h in Sources */,
 				131BDFF019D06EC50085EA1B /* SKKCandidateSuite.h in Sources */,

@@ -8,73 +8,67 @@
 
 import UIKit
 
-class KeyboardViewController: ImitationKeyboardViewController, WrapperParameter, UITableViewDelegate {
-    var session : SKKWrapper = SKKWrapper()
+class KeyboardViewController: ImitationKeyboardViewController, AquaSKKSessionDelegate, UITableViewDelegate {
+    var session : AquaSKKSession
     
-    let compose : UILabel = UILabel()
+    var compose : UILabel = UILabel()
     
-    var candidateView : UITableView? = nil
-    var dataSource : CandidateDataSource? = nil
+    var candidateView : UITableView
+    var dataSource : CandidateDataSource = CandidateDataSource()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
+        // AquaSKK session
+        // TODO: need async load?
+        self.session = AquaSKKSession()
+        let width = UIScreen.mainScreen().bounds.width
+
+        // candidate
+        // TODO: Use auto layout
+        candidateView = UITableView(frame: CGRect(x: 0, y:40, width:width, height:UIScreen.mainScreen().bounds.width - 40), style: .Plain)
+        candidateView.dataSource = dataSource
+        
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        
+        candidateView.delegate = self
 
         // compose
-        let width = UIScreen.mainScreen().bounds.width
         compose.text = "welcome to SKK for iOS"
         compose.font = UIFont.systemFontOfSize(18)
         compose.frame = CGRect(x: 10, y:0 , width: width, height: 40)
         infoView.addSubview(compose)
-        
-        // candidate
-        // TODO: Use auto layout
-        candidateView = UITableView(frame: CGRect(x: 0, y:40, width:width, height:UIScreen.mainScreen().bounds.width - 40), style: .Plain)
-        candidateView?.dataSource = dataSource
-        candidateView?.delegate = self
-        
-        session = SKKWrapper(self)
     }
     
-    func handle(charcode: CChar){
-        let b = session.handle(Int32(charcode), keycode: 0, mods: 0)
-        if(!b) {
-            if(charcode != 0x08){
-                let input : UIKeyInput? = (self.textDocumentProxy as UIKeyInput)
-                let str = String(UnicodeScalar(Int(charcode)))
-                input?.insertText(str)
-            }else{
-                (self.textDocumentProxy as UIKeyInput).deleteBackward()
-            }
-        }
+    required init(coder: NSCoder) {
+        fatalError("NSCoding not supported")
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        session.setDelegate(self)
+    }
+    
+    // callback from AquaSKK session
     func insertText(text: String!) {
-        NSLog("%@\n", text)
-        (self.textDocumentProxy as UITextDocumentProxy).insertText(text)
+        (self.textDocumentProxy as UIKeyInput).insertText(text)
     }
     
     func composeText(text: String!) {
-        NSLog("compose text %@\n", text)
         compose.text = text
     }
     
     func updateCandidate(xs: NSMutableArray) {
         if(xs.count <= 1 ) { return }
+        
         var ys : [String] = [String]()
-
         for x in xs {
             ys.append((x as NSString) as String)
         }
-        self.view.addSubview(candidateView!)
+        
+        self.view.addSubview(candidateView)
         self.forwardingView.hidden = true
-        dataSource?.update(ys)
-        candidateView?.reloadData()
-    }
-    
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        self.session.handle(Int32(indexPath.row + 0x21), keycode: 0, mods: 0)
-        self.candidateView?.removeFromSuperview()
-        self.forwardingView.hidden = false
+        dataSource.update(ys)
+        candidateView.reloadData()
     }
 
     func selectInputMode(mode : InputMode) {
@@ -96,6 +90,27 @@ class KeyboardViewController: ImitationKeyboardViewController, WrapperParameter,
         for (model, key) in self.layout.modelToView {
             if(model.type == Key.KeyType.InputModeChange) {
                 key.text = icon
+            }
+        }
+    }
+
+    // TableView
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        self.session.handle(Int32(indexPath.row + 0x21), keycode: 0, mods: 0)
+        self.candidateView.removeFromSuperview()
+        self.forwardingView.hidden = false
+    }
+    
+    // callback from keyboard
+    private func handle(charcode: CChar){
+        let b = session.handle(Int32(charcode), keycode: 0, mods: 0)
+        if(!b) {
+            if(charcode != 0x08){
+                let input : UIKeyInput? = (self.textDocumentProxy as UIKeyInput)
+                let str = String(UnicodeScalar(Int(charcode)))
+                input?.insertText(str)
+            }else{
+                (self.textDocumentProxy as UIKeyInput).deleteBackward()
             }
         }
     }

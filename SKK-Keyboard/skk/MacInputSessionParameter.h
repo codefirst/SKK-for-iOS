@@ -30,7 +30,7 @@ class MacInputSessionParameter : public SKKInputSessionParameter {
     MockDynamicCompletor completor_;
     
 public:
-    MacInputSessionParameter(id<WrapperParameter> delegate) :
+    MacInputSessionParameter(id<AquaSKKSessionDelegate> delegate) :
         frontend_(new MacFrontEnd(delegate)),
         candidate_(new MacCandidateWindow(delegate))
     {}

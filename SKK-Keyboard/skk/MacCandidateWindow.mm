@@ -1,7 +1,7 @@
 #import "MacCandidateWindow.h"
 
 
-MacCandidateWindow::MacCandidateWindow(id<WrapperParameter> delegate) : delegate_(delegate) {
+MacCandidateWindow::MacCandidateWindow(id<AquaSKKSessionDelegate> delegate) : delegate_(delegate) {
 }
 
 void MacCandidateWindow::SKKWidgetShow() {
