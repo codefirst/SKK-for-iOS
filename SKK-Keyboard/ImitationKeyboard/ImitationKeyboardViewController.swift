@@ -53,19 +53,19 @@ class ImitationKeyboardViewController: UIInputViewController {
     }
 
     // TODO: why does the app crash if this isn't here?
-    convenience override init() {
+    convenience init() {
         self.init(nibName: nil, bundle: nil)
     }
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
         self.keyboard = defaultKeyboard()
         self.forwardingView = ForwardingView(frame: CGRectZero)
-        self.forwardingView.setTranslatesAutoresizingMaskIntoConstraints(false)
+        self.forwardingView.translatesAutoresizingMaskIntoConstraints = false
         self.layout = KeyboardLayout(model: self.keyboard, superview: self.forwardingView)
         self.shiftState = .Disabled
         self.currentMode = 0
         self.infoView = UIView(frame: CGRectZero)
-        self.infoView.setTranslatesAutoresizingMaskIntoConstraints(false)
+        self.infoView.translatesAutoresizingMaskIntoConstraints = false
         
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         
@@ -156,7 +156,7 @@ class ImitationKeyboardViewController: UIInputViewController {
         self.setMode(0)
     }
     
-    required init(coder: NSCoder) {
+    required init?(coder: NSCoder) {
         fatalError("NSCoding not supported")
     }
 
@@ -189,16 +189,16 @@ class ImitationKeyboardViewController: UIInputViewController {
         for page in keyboard.pages {
             for rowKeys in page.rows { // TODO: quick hack
                 for key in rowKeys {
-                    var keyView = self.layout.viewForKey(key)! // TODO: check
+                    let keyView = self.layout.viewForKey(key)! // TODO: check
                     
-                    let showOptions: UIControlEvents = .TouchDown | .TouchDragInside | .TouchDragEnter
-                    let hideOptions: UIControlEvents = .TouchUpInside | .TouchUpOutside | .TouchDragOutside
+                    let showOptions: UIControlEvents = [.TouchDown, .TouchDragInside, .TouchDragEnter]
+                    let hideOptions: UIControlEvents = [.TouchUpInside, .TouchUpOutside, .TouchDragOutside]
                     
                     switch key.type {
                     case Key.KeyType.KeyboardChange:
                         keyView.addTarget(self, action: "advanceToNextInputMode", forControlEvents: .TouchUpInside)
                     case Key.KeyType.Backspace:
-                        let cancelEvents: UIControlEvents = UIControlEvents.TouchUpInside|UIControlEvents.TouchUpInside|UIControlEvents.TouchDragExit|UIControlEvents.TouchUpOutside|UIControlEvents.TouchCancel|UIControlEvents.TouchDragOutside
+                        let cancelEvents: UIControlEvents = [UIControlEvents.TouchUpInside, UIControlEvents.TouchUpInside, UIControlEvents.TouchDragExit, UIControlEvents.TouchUpOutside, UIControlEvents.TouchCancel, UIControlEvents.TouchDragOutside]
                         
                         keyView.addTarget(self, action: "backspaceDown:", forControlEvents: .TouchDown)
                         keyView.addTarget(self, action: "backspaceUp:", forControlEvents: cancelEvents)
@@ -249,7 +249,7 @@ class ImitationKeyboardViewController: UIInputViewController {
             UIGraphicsEndImageContext()
             let name = (self.interfaceOrientation.isPortrait ? "Screenshot-Portrait" : "Screenshot-Landscape")
             var imagePath = "/Users/archagon/Documents/Programming/OSX/TransliteratingKeyboard/\(name).png"
-            UIImagePNGRepresentation(capturedImage).writeToFile(imagePath, atomically: true)
+            UIImagePNGRepresentation(capturedImage)?.writeToFile(imagePath, atomically: true)
             
             self.view.backgroundColor = oldViewColor
         }
@@ -260,11 +260,11 @@ class ImitationKeyboardViewController: UIInputViewController {
         // Dispose of any resources that can be recreated
     }
     
-    override func textWillChange(textInput: UITextInput) {
+    override func textWillChange(textInput: UITextInput?) {
         // The app is about to change the document's contents. Perform any preparation here.
     }
     
-    override func textDidChange(textInput: UITextInput) {
+    override func textDidChange(textInput: UITextInput?) {
         // The app has just changed the document's contents, the document context has been updated.
     }
     
@@ -352,11 +352,11 @@ class ImitationKeyboardViewController: UIInputViewController {
     }
     
     func setMode(mode: Int) {
-        for (pageIndex, page) in enumerate(self.keyboard.pages) {
-            for (rowIndex, row) in enumerate(page.rows) {
-                for (keyIndex, key) in enumerate(row) {
+        for (pageIndex, page) in self.keyboard.pages.enumerate() {
+            for (rowIndex, row) in page.rows.enumerate() {
+                for (keyIndex, key) in row.enumerate() {
                     if self.layout.modelToView[key] != nil {
-                        var keyView = self.layout.modelToView[key]
+                        let keyView = self.layout.modelToView[key]
                         keyView?.hidden = (pageIndex != mode)
                     }
                 }

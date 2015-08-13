@@ -94,7 +94,7 @@ class KeyboardKey: UIControl, KeyboardView {
         super.init(frame: frame)
         
         self.clipsToBounds = false
-        self.keyView.setTranslatesAutoresizingMaskIntoConstraints(false)
+        self.keyView.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(self.keyView)
         
         self.addConstraint(NSLayoutConstraint(item: self, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: self.keyView, attribute: NSLayoutAttribute.Width, multiplier: 1, constant: 0))
@@ -113,7 +113,7 @@ class KeyboardKey: UIControl, KeyboardView {
 //        self.holder.contentView.clipsToBounds = false
     }
     
-    required init(coder: NSCoder) {
+    required init?(coder: NSCoder) {
         fatalError("NSCoding not supported")
     }
     
@@ -141,7 +141,7 @@ class KeyboardKey: UIControl, KeyboardView {
             self.configurePopup(self.popupDirection)
             super.layoutSubviews()
             
-            var upperLeftCorner = self.popup!.frame.origin
+            let upperLeftCorner = self.popup!.frame.origin
             var popupPosition = self.superview!.convertPoint(upperLeftCorner, fromView: self) // TODO: hack
             
 //            if popupPosition.y < 0 {
@@ -179,7 +179,7 @@ class KeyboardKey: UIControl, KeyboardView {
         if self.popup != nil { keyboardViews.append(self.popup!) }
         if self.connector != nil { keyboardViews.append(self.connector!) }
         
-        var switchColors = self.highlighted || self.selected
+        let switchColors = self.highlighted || self.selected
         
         for kv in keyboardViews {
             var keyboardView = kv
@@ -213,7 +213,7 @@ class KeyboardKey: UIControl, KeyboardView {
         
         // TODO: fix for direction
         
-        var widthConstraint = NSLayoutConstraint(
+        let widthConstraint = NSLayoutConstraint(
             item: self.popup!,
             attribute: NSLayoutAttribute.Width,
             relatedBy: NSLayoutRelation.Equal,
@@ -224,7 +224,7 @@ class KeyboardKey: UIControl, KeyboardView {
         self.constraintStore.append((self, widthConstraint) as (UIView, NSLayoutConstraint))
         
         // TODO: is this order right???
-        var heightConstraint = NSLayoutConstraint(
+        let heightConstraint = NSLayoutConstraint(
             item: self.popup!,
             attribute: NSLayoutAttribute.Height,
             relatedBy: NSLayoutRelation.Equal,
@@ -244,7 +244,7 @@ class KeyboardKey: UIControl, KeyboardView {
             Direction.Right: NSLayoutAttribute.Right,
         ]
         
-        var gapConstraint = NSLayoutConstraint(
+        let gapConstraint = NSLayoutConstraint(
             item: self.keyView,
             attribute: directionToAttribute[dir]!,
             relatedBy: NSLayoutRelation.Equal,
@@ -255,7 +255,7 @@ class KeyboardKey: UIControl, KeyboardView {
         gapConstraint.priority = 700
         self.constraintStore.append((self, gapConstraint) as (UIView, NSLayoutConstraint))
         
-        var gapMinConstraint = NSLayoutConstraint(
+        let gapMinConstraint = NSLayoutConstraint(
             item: self.keyView,
             attribute: directionToAttribute[dir]!,
             relatedBy: NSLayoutRelation.Equal,
@@ -268,7 +268,7 @@ class KeyboardKey: UIControl, KeyboardView {
         
         // can't touch top
         
-        var cantTouchTopConstraint = NSLayoutConstraint(
+        let cantTouchTopConstraint = NSLayoutConstraint(
             item: self.popup!,
             attribute: directionToAttribute[dir]!,
             relatedBy: (dir == Direction.Right ? NSLayoutRelation.LessThanOrEqual : NSLayoutRelation.GreaterThanOrEqual),
@@ -280,7 +280,7 @@ class KeyboardKey: UIControl, KeyboardView {
         self.constraintStore.append((self.superview!, cantTouchTopConstraint) as (UIView, NSLayoutConstraint))
         
         if dir.horizontal() {
-            var cantTouchTopConstraint = NSLayoutConstraint(
+            let cantTouchTopConstraint = NSLayoutConstraint(
                 item: self.popup!,
                 attribute: directionToAttribute[Direction.Up]!,
                 relatedBy: NSLayoutRelation.GreaterThanOrEqual,
@@ -292,7 +292,7 @@ class KeyboardKey: UIControl, KeyboardView {
             self.constraintStore.append((self.superview!, cantTouchTopConstraint) as (UIView, NSLayoutConstraint))
         }
         else {
-            var cantTouchSideConstraint = NSLayoutConstraint(
+            let cantTouchSideConstraint = NSLayoutConstraint(
                 item: self.superview!,
                 attribute: directionToAttribute[Direction.Right]!,
                 relatedBy: NSLayoutRelation.GreaterThanOrEqual,
@@ -301,7 +301,7 @@ class KeyboardKey: UIControl, KeyboardView {
                 multiplier: 1,
                 constant: 17) // TODO: layout
             cantTouchSideConstraint.priority = 1000
-            var cantTouchSideConstraint2 = NSLayoutConstraint(
+            let cantTouchSideConstraint2 = NSLayoutConstraint(
                 item: self.superview!,
                 attribute: directionToAttribute[Direction.Left]!,
                 relatedBy: NSLayoutRelation.LessThanOrEqual,
@@ -316,7 +316,7 @@ class KeyboardKey: UIControl, KeyboardView {
         
         // centering
         
-        var centerConstraint = NSLayoutConstraint(
+        let centerConstraint = NSLayoutConstraint(
             item: self.keyView,
             attribute: (dir.horizontal() ? NSLayoutAttribute.CenterY : NSLayoutAttribute.CenterX),
             relatedBy: NSLayoutRelation.Equal,
@@ -359,7 +359,7 @@ class KeyboardKey: UIControl, KeyboardView {
             self.layer.zPosition = 1000
             
             self.popup = KeyboardKeyBackground(frame: CGRectZero)
-            self.popup!.setTranslatesAutoresizingMaskIntoConstraints(false)
+            self.popup!.translatesAutoresizingMaskIntoConstraints = false
             self.popup!.cornerRadius = 9.0
             self.addSubview(self.popup!)
             

@@ -62,7 +62,7 @@ class KeyboardConnector: UIView, KeyboardView {
         self.backgroundColor = UIColor.clearColor()
     }
     
-    required init(coder: NSCoder) {
+    required init?(coder: NSCoder) {
         fatalError("NSCoding not supported")
     }
     
@@ -132,7 +132,7 @@ class KeyboardConnector: UIView, KeyboardView {
         let ctx = UIGraphicsGetCurrentContext()
         let csp = CGColorSpaceCreateDeviceRGB()
         
-        var path = CGPathCreateMutable();
+        let path = CGPathCreateMutable();
         
         CGPathMoveToPoint(path, nil, myConvertedStartPoints.0.x, myConvertedStartPoints.0.y)
         CGPathAddLineToPoint(path, nil, myConvertedEndPoints.1.x, myConvertedEndPoints.1.y)
@@ -152,7 +152,7 @@ class KeyboardConnector: UIView, KeyboardView {
             midpoint = myConvertedStartPoints.0.x + (myConvertedEndPoints.1.x - myConvertedStartPoints.0.x) / 2
         }
         
-        var bezierPath = UIBezierPath()
+        let bezierPath = UIBezierPath()
         bezierPath.moveToPoint(myConvertedStartPoints.0)
         bezierPath.addCurveToPoint(
             myConvertedEndPoints.1,

@@ -27,7 +27,7 @@ class ForwardingView: UIView {
         self.opaque = false
     }
     
-    required init(coder: NSCoder) {
+    required init?(coder: NSCoder) {
         fatalError("NSCoding not supported")
     }
     
@@ -51,7 +51,7 @@ class ForwardingView: UIView {
             return
         }
         
-        let control = view! as UIControl
+        let control = view! as! UIControl
         
         switch controlEvent {
         case
@@ -69,7 +69,7 @@ class ForwardingView: UIView {
         }
         
         let targets = control.allTargets()
-        for target in targets.allObjects { // TODO: Xcode crashes
+        for target in targets { // TODO: Xcode crashes
             var actions = control.actionsForTarget(target, forControlEvent: controlEvent)
             if (actions != nil) {
                 for action in actions! {
@@ -138,10 +138,9 @@ class ForwardingView: UIView {
         let b = pow(Double(closest.x - point.x), 2)
         return CGFloat(sqrt(a + b));
     }
-    
-    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
-        for obj in touches {
-            let touch = obj as UITouch
+
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        for touch in touches {
             let position = touch.locationInView(self)
             var view = findNearestView(position)
             
@@ -150,10 +149,9 @@ class ForwardingView: UIView {
             self.handleControl(view, controlEvent: .TouchDown)
         }
     }
-    
-    override func touchesMoved(touches: NSSet, withEvent event: UIEvent) {
-        for obj in touches {
-            let touch = obj as UITouch
+
+    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        for touch in touches {
             let position = touch.locationInView(self)
             
             var view = self.touchToView[touch]
@@ -169,21 +167,17 @@ class ForwardingView: UIView {
             }
         }
     }
-    
-    override func touchesEnded(touches: NSSet, withEvent event: UIEvent) {
-        for obj in touches {
-            let touch = obj as UITouch
-            
+
+    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        for touch in touches {
             var view = self.touchToView[touch]
             
             self.handleControl(view, controlEvent: .TouchUpInside)
         }
     }
 
-    override func touchesCancelled(touches: NSSet!, withEvent event: UIEvent!) {
-        for obj in touches {
-            let touch = obj as UITouch
-            
+    override func touchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?) {
+        for touch in touches ?? Set() {
             var view = self.touchToView[touch]
             
             self.handleControl(view, controlEvent: .TouchCancel)

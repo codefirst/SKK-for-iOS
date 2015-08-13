@@ -39,7 +39,7 @@ class KeyboardViewController: ImitationKeyboardViewController, AquaSKKSessionDel
         infoView.addSubview(compose)
     }
     
-    required init(coder: NSCoder) {
+    required init?(coder: NSCoder) {
         fatalError("NSCoding not supported")
     }
     
@@ -62,7 +62,7 @@ class KeyboardViewController: ImitationKeyboardViewController, AquaSKKSessionDel
         
         var ys : [String] = [String]()
         for x in xs {
-            ys.append((x as NSString) as String)
+            ys.append((x as! NSString) as String)
         }
         
         self.view.addSubview(candidateView)

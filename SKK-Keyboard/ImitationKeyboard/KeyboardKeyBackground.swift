@@ -81,7 +81,7 @@ class KeyboardKeyBackground: UIView, KeyboardView, Connectable {
         generatePointsForDrawing()
     }
     
-    required init(coder: NSCoder) {
+    required init?(coder: NSCoder) {
         fatalError("NSCoding not supported")
     }
     
@@ -123,7 +123,7 @@ class KeyboardKeyBackground: UIView, KeyboardView, Connectable {
         var firstEdge = false
         
         for i in 0..<4 {
-            if self._attached != nil && self._attached!.toRaw() == i {
+            if self._attached != nil && self._attached!.rawValue == i {
                 continue
             }
             
@@ -142,7 +142,7 @@ class KeyboardKeyBackground: UIView, KeyboardView, Connectable {
             }
             CGPathAddLineToPoint(fillPath, nil, self._segmentPoints[i].1.x, self._segmentPoints[i].1.y)
             
-            if (self._attached != nil && self._attached!.toRaw() == ((i + 1) % 4)) {
+            if (self._attached != nil && self._attached!.rawValue == ((i + 1) % 4)) {
                 // do nothing
             } else {
                 CGPathAddRelativeArc(edgePath, nil, self._arcCenters[(i + 1) % 4].x, self._arcCenters[(i + 1) % 4].y, CGFloat(self.cornerRadius), self._arcStartingAngles[(i + 1) % 4], CGFloat(M_PI/2.0))
@@ -249,8 +249,8 @@ class KeyboardKeyBackground: UIView, KeyboardView, Connectable {
     
     func attachmentPoints(direction: Direction) -> (CGPoint, CGPoint) {
         var returnValue = (
-            self._segmentPoints[direction.clockwise().toRaw()].0,
-            self._segmentPoints[direction.counterclockwise().toRaw()].1)
+            self._segmentPoints[direction.clockwise().rawValue].0,
+            self._segmentPoints[direction.counterclockwise().rawValue].1)
         
         // TODO: quick hack
         returnValue.0.y -= CGFloat(self.shadowOffset)

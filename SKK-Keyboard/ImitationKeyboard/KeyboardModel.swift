@@ -101,68 +101,68 @@ func ==(lhs: Key, rhs: Key) -> Bool {
 }
 
 func defaultKeyboard() -> Keyboard {
-    var defaultKeyboard = Keyboard()
+    let defaultKeyboard = Keyboard()
     
     for key in ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"] {
-        var keyModel = Key(.Character)
+        let keyModel = Key(.Character)
         keyModel.keyCap = key
         keyModel.outputText = key
         defaultKeyboard.addKey(keyModel, row: 0, page: 0)
     }
     
     for key in ["A", "S", "D", "F", "G", "H", "J", "K", "L"] {
-        var keyModel = Key(.Character)
+        let keyModel = Key(.Character)
         keyModel.keyCap = key
         keyModel.outputText = key
         defaultKeyboard.addKey(keyModel, row: 1, page: 0)
     }
     
-    var keyModel = Key(.Shift)
+    let keyModel = Key(.Shift)
     keyModel.keyCap = "⇪"
     defaultKeyboard.addKey(keyModel, row: 2, page: 0)
     
     for key in ["Z", "X", "C", "V", "B", "N", "M"] {
-        var keyModel = Key(.Character)
+        let keyModel = Key(.Character)
         keyModel.keyCap = key
         keyModel.outputText = key
         defaultKeyboard.addKey(keyModel, row: 2, page: 0)
     }
     
-    var keyModel2 = Key(.Backspace)
+    let keyModel2 = Key(.Backspace)
     keyModel2.keyCap = "⬅︎"
     defaultKeyboard.addKey(keyModel2, row: 2, page: 0)
     
-    var keyModel3 = Key(.ModeChange)
+    let keyModel3 = Key(.ModeChange)
     keyModel3.keyCap = "123"
     defaultKeyboard.addKey(keyModel3, row: 3, page: 0)
     
-    var inputModeChangeKey = Key(.InputModeChange)
+    let inputModeChangeKey = Key(.InputModeChange)
     inputModeChangeKey.keyCap = "あ"
     defaultKeyboard.addKey(inputModeChangeKey, row:3, page: 0)
     
-    var keyModel4 = Key(.KeyboardChange)
+    let keyModel4 = Key(.KeyboardChange)
     keyModel4.keyCap = "🌐"
     defaultKeyboard.addKey(keyModel4, row: 3, page: 0)
     
-    var keyModel5 = Key(.Space)
+    let keyModel5 = Key(.Space)
     keyModel5.keyCap = "space"
     keyModel5.outputText = " "
     defaultKeyboard.addKey(keyModel5, row: 3, page: 0)
     
-    var keyModel6 = Key(.Return)
+    let keyModel6 = Key(.Return)
     keyModel6.keyCap = "return"
     keyModel6.outputText = "\n"
     defaultKeyboard.addKey(keyModel6, row: 3, page: 0)
     
     for key in ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"] {
-        var keyModel = Key(.Character)
+        let keyModel = Key(.Character)
         keyModel.keyCap = key
         keyModel.outputText = key
         defaultKeyboard.addKey(keyModel, row: 0, page: 1)
     }
     
     for key in ["-", "/", ":", ";", "(", ")", "$", "&", "@", "\""] {
-        var keyModel = Key(.Character)
+        let keyModel = Key(.Character)
         keyModel.keyCap = key
         keyModel.outputText = key
         defaultKeyboard.addKey(keyModel, row: 1, page: 1)
@@ -171,7 +171,7 @@ func defaultKeyboard() -> Keyboard {
     defaultKeyboard.addKey(Key(keyModel3), row: 2, page: 1)
     
     for key in [".", ",", "?", "?", "!", "'"] {
-        var keyModel = Key(.Character)
+        let keyModel = Key(.Character)
         keyModel.keyCap = key
         keyModel.outputText = key
         defaultKeyboard.addKey(keyModel, row: 2, page: 1)
@@ -188,14 +188,14 @@ func defaultKeyboard() -> Keyboard {
     defaultKeyboard.addKey(Key(keyModel6), row: 3, page: 1)
     
     for key in ["[", "]", "{", "}", "#", "%", "^", "*", "+", "="] {
-        var keyModel = Key(.Character)
+        let keyModel = Key(.Character)
         keyModel.keyCap = key
         keyModel.outputText = key
         defaultKeyboard.addKey(keyModel, row: 0, page: 2)
     }
     
     for key in ["_", "\\", "|", "~", "<", ">", "€", "£", "Y", "*"] {
-        var keyModel = Key(.Character)
+        let keyModel = Key(.Character)
         keyModel.keyCap = key
         keyModel.outputText = key
         defaultKeyboard.addKey(keyModel, row: 1, page: 2)
@@ -204,7 +204,7 @@ func defaultKeyboard() -> Keyboard {
     defaultKeyboard.addKey(Key(keyModel3), row: 2, page: 2)
     
     for key in [".", ",", "?", "?", "!", "'"] {
-        var keyModel = Key(.Character)
+        let keyModel = Key(.Character)
         keyModel.keyCap = key
         keyModel.outputText = key
         defaultKeyboard.addKey(keyModel, row: 2, page: 2)
