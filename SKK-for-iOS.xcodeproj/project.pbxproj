@@ -895,7 +895,6 @@
 				TargetAttributes = {
 					131BDE8C19D06B4A0085EA1B = {
 						CreatedOnToolsVersion = 6.0.1;
-						DevelopmentTeam = VG2YYSKSHY;
 					};
 					131BDEA119D06B4A0085EA1B = {
 						CreatedOnToolsVersion = 6.0.1;
@@ -903,7 +902,6 @@
 					};
 					131BDEC819D06B8A0085EA1B = {
 						CreatedOnToolsVersion = 6.0.1;
-						DevelopmentTeam = VG2YYSKSHY;
 					};
 				};
 			};
